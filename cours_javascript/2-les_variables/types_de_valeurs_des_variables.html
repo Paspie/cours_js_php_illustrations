@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>les types de valeurs des variables</title>
+    <style>
+        *{
+                margin : 0px ;
+                padding : 0px ;
+            }
+            header{
+                height: 100px;
+                border: 1px solid rgba(123, 223, 77, 0.7);
+                padding: 100px 30% ;
+                margin-bottom: 28px;
+                background-image: url('../headandfooter/banner_linkedin.jpeg');
+                background-repeat: space;
+                background-size: contain;
+            }
+            header #titre{
+                word-spacing: 10px;
+                background-color: rgba(133, 223, 77, 0.6);
+                display: inline-block;
+                border-radius: 6px;
+                text-transform: uppercase;
+                text-align: center;
+                width: auto;
+            }
+            #contener{
+                width : 60%;
+                margin : auto ;
+                border-left: 1px solid;
+                padding-left: 30px;
+                background-color: rgba(28,196,5,0.1);
+                line-height: 30px;
+            }
+            #pieds_de_page{
+                height : 120px;
+                background-color : rgba(8,5,9,0.90);
+                color: silver;
+                align-content: center;
+                padding-top: 50px ;
+                margin-top: 28px;
+            }
+            #pieds_de_page p{
+                text-align: center;
+            }
+    </style>
+</head>
+<body>
+    <header>
+        <div id="titre">
+            <h2> Les types de variables en javascript </h2>
+        </div>
+    </header>
+    <div id='contener'>
+         <h4> Notions clés ou objectifs :</h4>
+         <ul>
+             <li> Maîtriser les principaux types de valeurs pouvant être stockées dans les variables; </li>
+             <li>Tester le type d'une valeur avec la fonction <strong>typeof(). </strong> </li>
+         </ul>  <br><br>
+         <p><strong>Exemples des types de valeur des variables :</strong> déclenchez l'illustration #1 <strong><span id="illustration">ici</span></strong>.</p>
+         <script>
+             var ill1 = document.getElementById('illustration');
+                ill1.addEventListener('click',affichage);
+                function affichage(){
+                    alert(
+                        "var x=25 valeur de type number, le nombre 25 en chiffre \nvar xprime='25', valeur de type string, chaîne de caractères 25 \nvar y=-75 , type number \nvar z=3.45 , type number float \nvar prenom='Pierre'=> type string \nvar nom='Bineng' => type string \nvar sexe='je suis un homme' => type string \nvar Bezirk='4' => type string \nvar a= true, =>boléen \nvar b= false, => boléen \nvar='true', => type string \nvar n=null, => type object \nvar u=undefined, => type undefined \nvar nn=NaN, => type not a number ");                      
+                }
+         </script>
+        <p>A noter qu'il est aussi possible d'affecter une nouvelle valeur d'un type différent à une variable : <strong><span id="illustration2">illustration #2</span></strong> </p>
+         <script>
+             var X = 26 ;
+             X="cinq" ;
+             var ill2 = document.getElementById('illustration2');
+                ill2.addEventListener('click',affichage2);
+                function affichage2(){
+                    alert("valeur intiale : X= 26 \nnouvelle valeur affectée  X=" + X + "\nla valeur 26 ayant été écrasée.");
+                }
+         </script>
+        <h4>La fonction typeof() </h4>
+        <p>Soit les variables suivantes : <br>
+            var a = 25 ;<br>
+            var b = "25" ;<br>
+            var c = -25 ;<br>
+            var d = 25.7 ;<br>
+            var e = "Pierre" ;<br>
+            var f = 'Bineng' ;<br>
+            var g = "je parle deutsch" ;<br>
+            var h = true ;<br>
+            var i = false ;<br>
+            var j = null ;<br>
+            var k = undefined ;<br>
+            var l = NaN ; <br>
+             on applique la fonction typeof() pour déterminer le type de leurs valeurs : voir l'<strong><span id="illustration3">illustration #3</span></strong> </p>
+        <script>
+            var a = 25 ;
+            var b = "25" ;
+            var c = -25 ;
+            var d = 25.7 ;
+            var e = "Pierre" ;
+            var f = 'Bineng' ;
+            var g = "je parle français" ;
+            var h = true ;
+            var i = false ;
+            var j = null ;
+            var k = undefined ;
+            var l = NaN ;
+
+            var ill3 = document.getElementById('illustration3');
+            ill3.addEventListener('click', affichage3);
+            function affichage3(){
+                alert("variable a : "+ typeof(a)+
+                "\nvariable b : "+ typeof(b) +
+                "\nvariable c : "+ typeof(c) +
+                "\nvariable d : "+ typeof(d) +
+                "\nvariable e : "+ typeof(e) +
+                "\nvariable f : "+ typeof(f) +
+                "\nvariable g : "+ typeof(g) +
+                "\nvariable h : "+ typeof(h) +
+                "\nvariable i : "+ typeof(i) +
+                "\nvariable j : "+ typeof(j) +
+                "\nvariable k : "+ typeof(k) +
+                "\nvariable l : "+ typeof(l) );
+            }
+        </script>
+
+    </div>
+    
+    <footer>
+        <div id='pieds_de_page'>
+            <p>copyright</p>
+            <p>no passion, no success !</p>
+        </div>
+    </footer>
+</body>
+</html>

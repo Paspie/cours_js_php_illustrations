@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Les formulaires en Javascript </title>
+    <style>
+        *{
+                margin : 0px ;
+                padding : 0px ;
+            }
+            header{
+                height: 100px;
+                border: 1px solid rgba(123, 223, 77, 0.7);
+                padding: 100px 30% ;
+                margin-bottom: 28px;
+                background-image: url('../headandfooter/banner_linkedin.jpeg');
+                background-repeat: space;
+                background-size: contain;
+            }
+            header #titre{
+                word-spacing: 10px;
+                background-color: rgba(133, 223, 77, 0.6);
+                display: inline-block;
+                border-radius: 6px;
+                text-transform: uppercase;
+                text-align: center;
+                width: auto;
+            }
+            #contener{
+                width : 60%;
+                margin : auto ;
+                border-left: 1px solid;
+                padding-left: 30px;
+                background-color: rgba(28,196,5,0.1);
+                line-height: 30px;
+                font-size: 18px;
+            }
+            #pieds_de_page{
+                height : 120px;
+                background-color : rgba(8,5,9,0.90);
+                color: silver;
+                align-content: center;
+                padding-top: 50px ;
+                margin-top: 28px;
+            }
+            #pieds_de_page p{
+                text-align: center;
+            }
+            #message{width: 450px; height: 90px;}
+            .lign{width: 250px; height: 25px; margin-bottom: 15px;}
+            #env{background-color: blueviolet; margin-top: 20px; height: 25px; width: 80px;}
+    </style>
+</head>
+<body>
+    <header>
+        <div id="titre">
+            <h2> Les formulaires en Javascript </h2>
+        </div>
+    </header>
+    <div id='contener'>
+        <h4> Notions clés ou objectifs :</h4>
+         <ul>
+             <li> rappel sur les formulaires au niveau html </li>
+             <li>validations des formulaires en Js et leurs limitations </li>
+         </ul><br><br>
+         <p> La création d'un formulaire se fait toujours en html et sa mise en forme en CSS, tandis que les données que les données qui y seront collectées seront analysées et stockées par d'autres langages. Il existe des techniques de validation des formulaire en HTML, cependant pour des validations plus poussées on devra recourir à d'autres langages.<br>En HTML, on peut utiliser comme attributs de validation : <strong>required(), minlenght(), maxlenght(), min(), max() </strong>. Ces attributs vont s'avérer insuffisant car un utilisateur peut facilement les neutraliser en éditant après inspectation du code source. </p><br>  
+         <h3>Validation Javascript des formulaires </h3> 
+         <p>La validation Js consiste à <strong>vérifier la présence des données demandées </strong> et à <strong>vérifier la qualité des donnés envoyées </strong>. <br>On va pouvoir utiliser les Regex afin de mieux cibler les données requises. Le rôle du Js est de vérifier la validité avant que le formulaire ne soit envoyé dans le serveur; cependant l'utilisateur peut aussi ici contourner la validation Js en désactivant simplement le Js au niveau du client. C'est pourquoi il n'est pas exclu de procéder à une sécurisation complémentaire des formulaires du côté serveur avec les langages comme PHP par exple. On aussi se servir du Js pour informer l'utilisateur en direct par rapport à la validation des champs à remplir. <strong>Exemple de formulaire validé en Js :</strong> </p>
+         <form method="POST" action="traitement">
+
+             <label for="vorname">Prénom :</label>
+             <input type="text" name="vorname" id="vorname" class="lign" placeholder="Vorname" maxlength="30" required>
+             <span id="prenom_manquant"></span><br>
+
+             <label for="name">Nom :</label>
+             <input type="text" name="name" id="name" class="lign" placeholder="Name" maxlength="30" required>
+             <span id="nom_manquant"></span><br>
+
+             <label for="phone">Tél :</label>
+             <input type="tel" name="phone" id="phone" class="lign" placeholder="(+43)" max="11">
+             <span id="invphone"></span><br>
+
+             <label for="mail">E-mail :</label>
+             <input type="email" name="mail" id="mail" class="lign" placeholder="e-mail" required>
+             <span id="invmail"></span><br>
+
+             <label for="message">Votre message :</label>
+             <textarea name="message" id="message" placeholder="Message..." maxlength="120"></textarea><br>
+
+             <input type="submit" value="Envoyer" id="env">
+         </form>
+         <script>
+             selprenom = document.getElementById("vorname") ;
+             selprenom_manquant = document.getElementById("prenom_manquant") ;
+             formatprenom = /^[a-zA-ZéèîïöüäÄÏÜÖ][a-zA-Zéèîäïöü]+([-'\s][a-zA-ZéèîïöüäÄÏÜÖ][a-zA-Zéèîäïöü])?/ ;
+
+             selnom = document.getElementById("name") ;
+             selnom_manquant = document.getElementById("nom_manquant") ;
+             formatnom = /^[a-zA-ZéèîïöüäÄÏÜÖ][a-zA-Zéèîäïöü]+([-'\s][a-zA-ZéèîïöüäÄÏÜÖ][a-zA-Zéèîäïöü])?/ ;
+
+             selphone = document.getElementById("phone") ;
+
+             selemail = document.getElementById("mail") ;
+
+             selmessage = document.getElementById("message") ;
+
+             selenv = document.getElementById("env") ;
+
+             
+            selenv.addEventListener("click",validation1) ;
+
+            function validation1(e){
+                if(selprenom.validity.valueMissing){
+                    e.preventDefault() ;
+                    selprenom_manquant.textContent="veuillez remplir cette case" ;
+                    selprenom_manquant.style.color="red" ;
+                    selprenom_manquant.style.fontSize="14px" ;
+                }
+                else if(formatprenom.test(selprenom.value) == false){
+                    event.preventDefault() ;
+                    selprenom_manquant.textContent="format invalide" ;
+                    selprenom_manquant.style.color="green" ;
+                    selprenom_manquant.style.fontSize="14px";
+                }
+                else if(selnom.validity.valueMissing){
+                    e.preventDefault() ;
+                    selnom_manquant.textContent="veuillez remplir cette case" ;
+                    selnom_manquant.style.color="red" ;
+                    selnom_manquant.style.fontSize="14px" ;
+                }
+                else if(formatnom.test(selnom.value) == false){
+                    event.preventDefault() ;
+                    selnom_manquant.textContent="format invalide" ;
+                    selnom_manquant.style.color="green" ;
+                    selnom_manquant.style.fontSize="14px";
+                }
+                else{
+
+                }
+            }
+
+           /* selenv.addEventListener("click",validation2) ;
+
+            function validation2(k){
+                if(selnom.validity.valueMissing){
+                    k.preventDefault() ;
+                    selprenom_manquant.textContent="veuillez remplir cette case" ;
+                    selprenom_manquant.style.color="red" ;
+                    selprenom_manquant.style.fontSize="14px" ;
+                }
+                else if(formatnom.test(selnom.value) == false){
+                    event.preventDefault() ;
+                    selprenom_manquant.textContent="format invalide" ;
+                    selprenom_manquant.style.color="green" ;
+                    selprenom_manquant.style.fontSize="14px";
+                }
+            } */
+         </script>
+    </div>
+    
+    <footer>
+        <div id='pieds_de_page'>
+            <p>copyright</p>
+            <p>no passion, no success !</p>
+        </div>
+    </footer>
+</body>
+</html>

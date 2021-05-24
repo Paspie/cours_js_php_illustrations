@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion des erreurs  et le mode strict </title>
+    <style>
+        *{
+                margin : 0px ;
+                padding : 0px ;
+            }
+            header{
+                height: 100px;
+                border: 1px solid rgba(123, 223, 77, 0.7);
+                padding: 100px 30% ;
+                margin-bottom: 28px;
+                background-image: url('../headandfooter/banner_linkedin.jpeg');
+                background-repeat: space;
+                background-size: contain;
+            }
+            header #titre{
+                word-spacing: 10px;
+                background-color: rgba(133, 223, 77, 0.6);
+                display: inline-block;
+                border-radius: 6px;
+                text-transform: uppercase;
+                text-align: center;
+                width: auto;
+            }
+            #contener{
+                width : 60%;
+                margin : auto ;
+                border-left: 1px solid;
+                padding-left: 30px;
+                background-color: rgba(28,196,5,0.1);
+                line-height: 30px;
+            }
+            #pieds_de_page{
+                height : 120px;
+                background-color : rgba(8,5,9,0.90);
+                color: silver;
+                align-content: center;
+                padding-top: 50px ;
+                margin-top: 28px;
+            }
+            #pieds_de_page p{
+                text-align: center;
+            }
+    </style>
+</head>
+<body>
+    <header>
+        <div id="titre">
+            <h2> Gestion des erreurs en Javascript </h2>
+        </div>
+    </header>
+    <div id='contener'>
+        <h4> Notions clés ou objectifs :</h4>
+         <ul>
+             <li> les blocs try() catch(), et throw  </li>
+         </ul><br><br>
+         <p> Les peuvent provenir du programmeur, de l'user, ou d'une defficience interne. <br><strong>Illustration avec solution :</strong> si le nombre ne correspond pas à la tranche, il y a erreur. les blocs <em>try() </em> et <em>catch() </em> vont permettre de rechercher l'erreur et de la récupérer. </p>
+         <label for="nombre">Veuillez entrer un nombre entre 1 et 20 : </label>
+         <input type="number" min="1" max="20" id="nombre" name="nombre">
+         <button type="button" id="test">valider</button>
+         <p id="msg"></p>
+         <script>
+             var bou = document.getElementById("test") ;
+             bou.addEventListener("click",testvaleur) ;
+
+             function testvaleur(){
+                 var p = document.getElementById("msg") ;
+                 var x = document.getElementById("nombre").value ;
+
+                 try{
+                     if((isNaN(x)) || (x == "")){
+                         throw "vous n'avez pas entré de nombre !" ;
+                     }
+                     else if((x<1) || (x>20)){
+                        throw "valeur trop grande ou trop petite !" ;
+                     }
+                     else{
+                         msg.innerHTML = "nombre OK."
+                     }
+                 }
+                 catch(e){
+                     msg.innerHTML = e ;
+                 }
+                 //pour réinitialiser le champ en cas d'erreur survenue, on peut ajouter ce bloc optionnel
+                 finally{
+                 document.getElementById("nombre").value = "" ;
+                }
+             }
+         </script>
+         <h3>Le mode strict </h3>
+         <p>C'est mode qui contient une sémantique légèrement plus stricte que le Javascript normal. On utilise l'expression <em><strong>"use strict"</strong></em> pour l'activer. Si elle est activée à l'intérieur d'une fonction, seul le code de la fonction sera exécuté en mode strict, si il est activé plutôt dans l'espace global, tout le script sera exécuté en mode strict.<br>On l'utilise généralement pour forcer l'écriture du code Js moins permissif car il transforme certaines syntaxes non recommandées en erreurs. Par exemple, déclarer une variable sans la mention <strong>var</strong> a pour effet qu'elle va agir en global ; en mode strict elle ne s'exécutera pas. </p>
+         <br><br><h2>***********FIN DU COURS************</h2>
+         <br><p>Ce cours m'a permis de comprendre tous les aspects majeurs du Javascript, et l'importance d'appliquer les bonnes pratiques : bien organiser et indenter, déclarer toutes les variables globales en début du script et avec  la mention "var", et les initialiser avec une valeur ou bien les laisser en variables vides ; n'utiliser "new" que si nécessaire, autrement n'utiliser que les valeurs primitives. Je peux aller plus loin en explorant les librairies Javascript : Jquery, prototype, Json. cours pratique terminé le 30/04/2021, 14h05. </p>
+    </div>
+    
+    <footer>
+        <div id='pieds_de_page'>
+            <p>copyright</p>
+            <p>no passion, no success !</p>
+        </div>
+    </footer>
+</body>
+</html>

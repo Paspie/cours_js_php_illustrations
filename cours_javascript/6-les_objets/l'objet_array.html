@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>l'objet Array et ses propriétés/méthodes </title>
+    <style>
+        *{
+                margin : 0px ;
+                padding : 0px ;
+            }
+            header{
+                height: 100px;
+                border: 1px solid rgba(123, 223, 77, 0.7);
+                padding: 100px 30% ;
+                margin-bottom: 28px;
+                background-image: url('../headandfooter/banner_linkedin.jpeg');
+                background-repeat: space;
+                background-size: contain;
+            }
+            header #titre{
+                word-spacing: 10px;
+                background-color: rgba(133, 223, 77, 0.6);
+                display: inline-block;
+                border-radius: 6px;
+                text-transform: uppercase;
+                text-align: center;
+                width: auto;
+            }
+            #contener{
+                width : 60%;
+                margin : auto ;
+                border-left: 1px solid;
+                padding-left: 30px;
+                background-color: rgba(28,196,5,0.1);
+                line-height: 30px;
+            }
+            #pieds_de_page{
+                height : 120px;
+                background-color : rgba(8,5,9,0.90);
+                color: silver;
+                align-content: center;
+                padding-top: 50px ;
+                margin-top: 28px;
+            }
+            #pieds_de_page p{
+                text-align: center;
+            }
+    </style>
+</head>
+<body>
+    <header>
+        <div id="titre">
+            <h2>l'objet Array et ses propriétés/méthodes </h2>
+        </div>
+    </header>
+    <div id='contener'>
+        <h4> Notions clés ou objectifs :</h4>
+         <ul>
+             <li>manipuler les valeurs d'un tableau  </li>
+             <li>différence entre un objet littéral et un tableau</li>
+             <li>maîtriser les propriétés et méthodes de l'objet tableau</li>
+         </ul><br><br>
+         <h3>1. création d'un tableau</h3>  
+         <p><span id="illustration1"><strong>Illustration</strong></span></p> 
+         <script>
+             ill1 = document.getElementById("illustration1") ;
+             ill1.addEventListener("click",resultat1) ;
+             function resultat1(){
+                var prenom = ["Djibril", "Pierre", "Orshell", "Eder"] ;
+                alert("Je suis un tableau de 4 valeurs créé en Js et j'alerte la valeur de mon premier index(0) :"+"\n\n"+ prenom [0]) ; 
+             }
+         </script>
+         <h3>2. modifier une valeur dans un tableau </h3>
+         <p><span id="illustration2"><strong>Illustration</strong></span></p>
+         <script>
+             ill2 = document.getElementById("illustration2") ;
+             ill2.addEventListener("click",resultat2) ;
+             function resultat2(){
+                var prenom = ["Djibril", "Pierre", "Orshell", "Eder"] ;
+
+                prenom [1] = "Final" ;
+                alert("Je suis un tableau de 4 valeurs créé en Js et j'alerte la nouvelle valeur de mon index(2) :"+"\n\n"+ prenom [1]) ; 
+             }
+         </script>
+         <h3>3. la propriété length </h3>
+         <p>Elle est utilisée pour déterminer le nombre d'éléments contenus dans un array. <span id="illustration3"><strong>Illustration</strong></span> </p>
+         <script>
+             ill3 = document.getElementById("illustration3") ;
+             ill3.addEventListener("click",resultat3) ;
+             function resultat3(){
+                var prenom = ["Djibril", "Pierre", "Orshell", "Eder"] ;
+                alert("Je suis un tableau créé en Js et je contiens : "+"\n\n"+ prenom.length+" éléments." ) ; 
+             }
+         </script>
+         <p>On peut utiliser cette propriété pour ajouter des éléments dans le tableau, vu que le nombre d'éléments correspond toujours au nombre d'indexes et est égal au dernier index+1. <span id="illustration4"><strong>Illustration</strong></span> </p>
+         <script>
+             ill4 = document.getElementById("illustration4") ;
+             ill4.addEventListener("click",resultat4) ;
+             function resultat4(){
+                var prenom = ["Djibril", "Pierre", "Orshell", "Eder"] ;
+
+                prenom[prenom.length] = "Hillary" ;
+                alert("J'alerte la dernière valeur ajoutée à partir de mon nombre de d'éléments :"+"\n\n"+ prenom [4]) ; 
+             }
+         </script>
+         <p>Pour parcourir un tableau et afficher toutes ses valeurs, on va utiliser la boucle "for()", en créant tout d'abord une 2e variable vide qui va pouvoir contenir les valeurs au passage dans la boucle.<span id="illustration5"><strong>Illustration</strong></span> </p>
+         <script>
+             ill5 = document.getElementById("illustration5") ;
+             ill5.addEventListener("click",resultat5) ;
+             function resultat5(){
+                var prenom = ["Djibril", "Pierre", "Orshell", "Eder"] , pren = "" ;
+                for (var i=0; i<prenom.length ; i++ ){
+                    pren+= "prenom #"+(i+1)+" : " +prenom[i]+"\n" ;
+                }
+                alert(pren) ; 
+             }
+         </script>
+         <p>En Js, les tableaux de type associatifs n'existent pas. A la place, on peut utiliser un <strong>objet littéral</strong> bien que les ppt des array ne fonctionneront pas dans ce cas. Pour parcourir et afficher les valeurs dans ce cas, on va utiliser une boucle spécifiquement créée pour cela qui va donc parcourir le tableau selon ses indexes en utilsant un "alias" qui sera remplacé au fur et à mesure par les différents éléments. On aura toujours besoin de créer une 2e variable vide. <span id="illustration6"><strong>Illustration</strong></span> </p>
+         <script>
+             ill6 = document.getElementById("illustration6") ;
+             ill6.addEventListener("click",resultat6) ;
+             function resultat6(){
+                 var prenom = {
+                     prenom1 :"Pierre" ,
+                     prenom2 :"Eder" ,
+                     prenom3 :"Djibril" ,
+                     prenom4 :"Orshel" ,
+                 } ;
+                 var pren = "" ;
+                 for(var clef in prenom){
+                     pren+= clef+" : "+prenom[clef]+"\n" ; 
+                     alert (pren) ;
+                 }
+
+             }
+         </script>
+         <h3>4. les méthodes de l'objet Array</h3>
+         <h4>a. push() et pop() </h4>
+         <p>Elles agissent en fin de tableau et servent respectivement à ajouter et supprimer les éléments d'un tableau. push() en plus retourne la nouvelle taille du tableau et pop() la valeur de l'élément supprimé, en string. <br><em>nomtab.push("ajout1","ajout2") </em> et <em>nomtab.pop() </em> </p>
+         <h4>b. unshift() et shift() </h4>
+         <p>Elles agissent en début de tableau et jouent les mêmes rôles que celles précédentes. <br> <em>nomtab.unshift("ajout1","ajout2")</em> et <em>nomtab.shift()</em> </p>
+         <h4>c. splice() </h4>
+         <p>Elle permet d'ajouter et/ou de supprimer des éléments choisis dans un array. Elle prend 2 paramètres au minimum : le rang et le nombre d'éléments à supprimer.<br> <em>nomtab.splice(rang, qté,"ajout1", "ajout2")</em>.<br> Il est visiblement de ce fait possible de supprimer sans toutefois en ajouter. </p>
+        <h4>d. sort() et reverse() </h4>
+        <p>Elles sevent trier les éléménts en fonction de l'ordre alphabétique et des valeurs. Elles sont sensibles à la casse et agissent en commençant par les lettres majuscules, elles considèrent les éléments comme des string. <br> <em>nomtab.sort() </em> pour l'ordre alphabétique et maj->min ; <em>nomtab.reverse() </em> pour l'ordre alphabétique et min->maj . </p>
+        <h4>e. join() </h4>
+        <p>Elle retourne les éléments sous forme de string, et prend comme paramètre le type de séparateur désiré. <br> <em>nomtab.join(/) </em> </p>
+        <h4>f. slice </h4>
+        <p>Elle permet de créer un nouveau tableau en extrayant les éléments d'un tableau de base, et prend 2 paramètres : la position ou l'index de départ et la position de fin.<br> <em>nomtab.slice(ranginitial, rangfin) </em> </p>
+        <h4>g. concat() </h4>
+        <p>Elle permet de fusionner les tableaux : <br> <em>neuertab = nomtab1.concat(nomtab2) </em> et aussi <em>neuertab = nomtab2.concat(nomtab1) </em> <br> Et pour 3 tableaux : <em>neuertab = nomtab1.concat(nomtab2,nomtab3) </em> </p>
+    </div>
+    
+    <footer>
+        <div id='pieds_de_page'>
+            <p>copyright</p>
+            <p>no passion, no success !</p>
+        </div>
+    </footer>
+</body>
+</html>

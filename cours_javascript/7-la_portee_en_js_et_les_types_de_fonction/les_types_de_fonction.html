@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fonctions anonymes, fonctions autoinvoquées et closures en Js </title>
+    <style>
+        *{
+                margin : 0px ;
+                padding : 0px ;
+            }
+            header{
+                height: 100px;
+                border: 1px solid rgba(123, 223, 77, 0.7);
+                padding: 100px 30% ;
+                margin-bottom: 28px;
+                background-image: url('../headandfooter/banner_linkedin.jpeg');
+                background-repeat: space;
+                background-size: contain;
+            }
+            header #titre{
+                word-spacing: 10px;
+                background-color: rgba(133, 223, 77, 0.6);
+                display: inline-block;
+                border-radius: 6px;
+                text-transform: uppercase;
+                text-align: center;
+                width: auto;
+            }
+            #contener{
+                width : 60%;
+                margin : auto ;
+                border-left: 1px solid;
+                padding-left: 30px;
+                background-color: rgba(28,196,5,0.1);
+                line-height: 30px;
+            }
+            #pieds_de_page{
+                height : 120px;
+                background-color : rgba(8,5,9,0.90);
+                color: silver;
+                align-content: center;
+                padding-top: 50px ;
+                margin-top: 28px;
+            }
+            #pieds_de_page p{
+                text-align: center;
+            }
+    </style>
+</head>
+<body>
+    <header>
+        <div id="titre">
+            <h2> Fonctions anonymes, fonctions autoinvoquées, et closures en Js </h2>
+        </div>
+    </header>
+    <div id='contener'>
+        <h4> Notions clés ou objectifs :</h4>
+         <ul>
+             <li>Comment utiliser les fonctions anonymes </li>
+             <li>Comment utiliser les fonctions autoinvoquées </li>
+             <li>Comprendre l'intérêt des closures</li>
+         </ul><br><br>
+         <h4>1. Les fonctions anonymes </h4>   
+         <p>Ce sont des fonctions qui ne possèdent pas de noms. Il est possible de stocker une fonction dans une variable et la manipuler normalement. Il existe encore d'autres façons de les manipuler. Une fonction anonyme peut être définie avec des paramètres ou sans. <span id="illustration1"><strong>Illustration</strong></span> </p>
+         <script>
+             ill1 = document.getElementById("illustration1") ;
+             ill1.addEventListener("click", resultat1) ;
+
+             function resultat1(){
+                 var anon = function (x){ //La variable "anon" va se comporter nettement comme une fonction.
+                     alert("je suis une fonction anonyme prenant comme argument un nombre et j'alerte le carré des nombres.\nLe carré de "+x+" est = "+x*x) ;
+                 } ;
+                 var nombr = prompt("Je suis la fonction prompt, mon rôle est de receuillir les données auprès des utilisateurs. Veuillez entrer un nombre ici :") ;
+                 anon(nombr) ; // La fonction "prompt" est utilisée pour récupérer des données auprès des utilisateurs.
+             }
+         </script>
+         <h4>2. Les fonctions autoinvoquées</h4>
+         <p>Ce sont des fonctions qui vont s'appeler ou s'auto exécuter elles-mêmes.Pour créer une fonction autoinvoquée il suffit d'ajouter un couple de parenthèses autour du fonction entière, et un 2nd après le code du fonction. On les utilise généralement avec les fonctions anonymes. <span id="illustration2"><strong>Illustration</strong></span> </p>
+         <script>
+             ill2 = document.getElementById("illustration2") ;
+             ill2.addEventListener("click", resultat2) ;
+
+             function resultat2(){
+                var anon = (function (x){ 
+                    var x = prompt("entrez un nombre ici : ") ;
+                     alert("je suis une fonction anonyme et auto-invoquée prenant comme argument un nombre et j'alerte le carré des nombres.\nLe carré de "+x+" est = "+x*x) ;
+                 })() ;
+             }
+         </script>
+         <h4>3. Les closures </h4>
+         <p>Une closure ou fermeture est une fonction qui va pouvoir utiliser les variables d'environnement dans lequel elle a été créée. Elle permet donc d'isoler ou d'enfermer une partie du code et de pouvoir le réutiliser et récupérer les variables accessibles en principe qu'à l'intérieur de ce code. <span id="illustration3"><strong>Illustration</strong></span>(création d'un compteur) </p>
+         <script>
+             ill3 = document.getElementById("illustration3") ;
+             ill3.addEventListener("click", resultat3) ;
+
+             function resultat3(){
+                 function compteur(){ //Premier environnement.
+                     var i=0 ;
+                     return function(){ // Deuxième environnement. En principe la var i n'est pas accessible dans cet environnement. Mais le principe de closure va permettre à une variable définie ici d'accéder à la variable i.
+                         return i++ ;
+                     }
+                 }
+               //  alert(compteur()) ; //alerte sans exécuter le code qui se trouve à l'intérieur de l'environnement compteur. 
+               var plusun = compteur() ; //pour enfermer le code ci dessus et exécuter la fonction anonyme. La variable i ne pouvant être influencer par l'environnement extérieur, on peut créer autant d'compteur ou de compteurs qu'on le souhaite.
+               var compteur2 = compteur() ;
+               var compteur3 = compteur() ;
+
+               alert("premier tour du premier compteur, dans la fonction compteur : "+plusun()+
+               "\n2e tour du premier compteur : "+plusun()+
+               "\n3e tour du premier compteur : "+plusun()+
+               "\npremier tour du 2e compteur, dans la fonction compteur : "+compteur2()+
+               "\npremier tour du 3e compteur, dans la fonction compteur : "+compteur3()+
+               "\n2e tour du 2e compteur : "+compteur2()+
+               "\n3e tour du 2e compteur : "+compteur2()+
+               "\n2e tour du 3e compteur : "+compteur3()+
+               "\n4e tour du premier compteur : "+plusun()+"\nOn peut créer autant de compteurs qu'on souhaite") ;
+             }
+         </script>
+    </div>
+    
+    <footer>
+        <div id='pieds_de_page'>
+            <p>copyright</p>
+            <p>no passion, no success !</p>
+        </div>
+    </footer>
+</body>
+</html>

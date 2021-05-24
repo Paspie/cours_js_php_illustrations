@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Les fonctions en javascript </title>
+    <style>
+        *{
+                margin : 0px ;
+                padding : 0px ;
+            }
+            header{
+                height: 100px;
+                border: 1px solid rgba(123, 223, 77, 0.7);
+                padding: 100px 30% ;
+                margin-bottom: 28px;
+                background-image: url('../headandfooter/banner_linkedin.jpeg');
+                background-repeat: space;
+                background-size: contain;
+            }
+            header #titre{
+                word-spacing: 10px;
+                background-color: rgba(133, 223, 77, 0.6);
+                display: inline-block;
+                border-radius: 6px;
+                text-transform: uppercase;
+                text-align: center;
+                width: auto;
+            }
+            #contener{
+                width : 60%;
+                margin : auto ;
+                border-left: 1px solid;
+                padding-left: 30px;
+                background-color: rgba(28,196,5,0.1);
+                line-height: 30px;
+            }
+            #pieds_de_page{
+                height : 120px;
+                background-color : rgba(8,5,9,0.90);
+                color: silver;
+                align-content: center;
+                padding-top: 50px ;
+                margin-top: 28px;
+            }
+            #pieds_de_page p{
+                text-align: center;
+            }
+    </style>
+</head>
+<body>
+    <header>
+        <div id="titre">
+            <h2> les fonctions en javascript </h2>
+        </div>
+    </header>
+    <div id='contener'>
+        <h4> Notions clés ou objectifs :</h4>
+         <ul>
+             <li>Les fonctions :utilisation et syntaxe  </li>
+             <li>création d'une fonction et utilisation des paramètres/arguments</li>
+         </ul><br><br>
+         <p>Une fonction est un bloc de code qui effectuera une tâche précise, par exemple la fonction "alert" qui permet d'afficher des messages dans la boîte de dialogue.<br> L'intérêt des fonctions est qu'on a pas besoin de redéfinir leurs codes à chaque fois; une fois créée, il se suffira de l'appeler pour qu'elle s'exécute à un endroit précis. <br>Il existe 2 grands types de fonction en Js : </p>
+         <ul>
+             <li>les fonctions <strong>Natives </strong> : qui sont des fonctions déjà prêtes à l'emploi; </li>
+             <li>les fonctions <strong>créées par nous-mêmes</strong> : pour nos besoins spécifiques </li>
+         </ul>   
+         <p>Nous allons ici analyser le 2e type de fonction.</p>
+         <p>La mise en marche d'une fonction se fait en 2 étapes : <strong>la création</strong> et <strong>l'appel</strong> de la fonction. De même que la fonction "alert" est souvent utilisée dans d'autres fonction pour afficher un message, une fonction créée par nous mêmes peut être utilisée à l'intérieur une autre.<br><br> Les fonctions n'ont pas forcément besoin des paramètres pour fonctionnner. On peut se poser la question <em><strong>de quoi a besoin notre fonction pour fonctionner ?</strong></em> pour lui trouver ou pas des paramètres; par contre les fonctions ont toujours besoin des <strong>( ) </strong> même si elles sont vides. Les paramètres deviennent des <strong>arguments</strong> lorsqu'ils sont définis dans l'appel de la fonction. <br><br>L'instruction <em>return() </em> fera récupérer le résultat d'une fonction sans l'afficher tandis que <em>alert() </em> l'affichera immédiatement. Il est recommandé de plus souvent utiliser <em>return() </em>, avec elle on peut capturer le résultat d'une fonction généralement en utilisant une autre variable afin de pouvoir le réutiliser. On finira toujours par utiliser <em>alert() </em> pour afficher le resultat. A noter que l'instruction <em>return() </em> met fin à l'exécution d'une fonction, le reste du code après elle ne sera simplement pas exécuté. <br> </p>
+    </div>
+    
+    <footer>
+        <div id='pieds_de_page'>
+            <p>copyright</p>
+            <p>no passion, no success !</p>
+        </div>
+    </footer>
+</body>
+</html>

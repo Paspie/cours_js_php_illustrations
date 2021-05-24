@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Les méthodes usuelles des objets string et number en Js </title>
+    <style>
+        *{
+                margin : 0px ;
+                padding : 0px ;
+            }
+            header{
+                height: 100px;
+                border: 1px solid rgba(123, 223, 77, 0.7);
+                padding: 100px 30% ;
+                margin-bottom: 28px;
+                background-image: url('../headandfooter/banner_linkedin.jpeg');
+                background-repeat: space;
+                background-size: contain;
+            }
+            header #titre{
+                word-spacing: 10px;
+                background-color: rgba(133, 223, 77, 0.6);
+                display: inline-block;
+                border-radius: 6px;
+                text-transform: uppercase;
+                text-align: center;
+                width: auto;
+            }
+            #contener{
+                width : 60%;
+                margin : auto ;
+                border-left: 1px solid;
+                padding-left: 30px;
+                background-color: rgba(28,196,5,0.1);
+                line-height: 30px;
+            }
+            #pieds_de_page{
+                height : 120px;
+                background-color : rgba(8,5,9,0.90);
+                color: silver;
+                align-content: center;
+                padding-top: 50px ;
+                margin-top: 28px;
+            }
+            #pieds_de_page p{
+                text-align: center;
+            }
+    </style>
+</head>
+<body>
+    <header>
+        <div id="titre">
+            <h2> Les méthodes usuelles des objets STRING et NUMBER en Js</h2>
+        </div>
+    </header>
+    <div id='contener'>
+        <h4> Notions clés ou objectifs :</h4>
+         <ul>
+             <li> maîtriser les méthodes usuelles des objets de type String </li>
+             <li> maîtriser les méthodes usuelles des objets de type Number </li>
+         </ul><br><br>
+         <h3>Propriétés et méthodes usuelles des objets de type string</h3>
+         <p> Les objets de type string possèdent <strong>3 Propriétés </strong> et une <strong>vingtaine de méthodes</strong>. On préferera utiliser les valeurs primitives string qu'aux objets string vu que les ppt/mth s'appliquent de la même façon aux 2. Les 3 pptés sont :  </p>
+         <ul>
+             <li><strong>length</strong> : <em>nomprimitive.length</em> , en générale si on tente d'affecter une valeur à la ppt length rien d'observable ne se produira. Donc on peut utiliser cette ppt pour déterminer la longueur d'une ch car. </li>
+             <li><strong>prototype</strong> : pour ajouter de nouvelles ppt/mth à un objet. En pratique pas utilisée.</li>
+             <li><strong>contructor</strong>: pour retourner la fonction qui a créé le prototype. En pratique pas trop utilisée.</li>
+         </ul>
+         <p>Les 2 dernières n'étant pas trop utilisées en pratique, nous allons nous attarder sur les méthodes de la ppt length. Ces méthodes sont sensibles à la casse.</p>
+         <h4>1. les méthodes toLowerCase() et toUpperCase() </h4>   
+         <p>Ces méthodes ne nécessitent pas de paramètres : <em>nomprim.toLowerCase() </em> et <em>nomprim.toUpperCase() </em>. On peut évidemment faire stocker les résultats de ces mth dans d'autres variables. </p>
+         <h4>2. la méthode charAt() </h4>
+         <p>Elle permet de déterminer le caractère occupé par un rang dans une ch car. Elle prend en paramètre le rang en question : <em>nomprim.charAt(rang) </em> </p>
+         <h4>3. les méthodes indexOf() et lastIndexOf() </h4>
+         <p>Elles permettent de déterminer respectivement le rang de la première et la dernière occurence et d'un caract ou d'une ch car : <em>nomprim.indexOf("car/chcar") </em> et <em>nomprim.lastIndexOf("car/chcar") </em>. Elles renvoient comme résultat -1 si le car/chcar n'est pas retrouvé. On peut ajouter comme 2e paramètre facultatif la position à laquelle on souhaite démarrer la recherche. </p>
+         <h4>4. la méthode remplace() </h4>
+         <p>Elle permet de remplacer un car/chcar par un autre : <em>nomprim.remplace("car/chcar à remplacer","nouveau car/chcar") </em> </p>
+         <h4>5. la méthode slice() </h4>
+         <p>Elle permet d'extraire des caractères dans une chcar : <em>nomprim.slice(rang début, rang fin) </em>. En donnant des argument négatifs, l'extraction se fera dans le sens inverse. </p>
+         <h4>6. la méthode trim() </h4>
+         <p>Ne prenant pas d'argument, elle permet de nettoyer les espaces superflux ou inutiles dans une chcar : <em>nomprim.trim() </em> </p><br>
+         <h3>Propriétés et méthodes de l'objet Number </h3>
+         <p>On étudiera les ppt/mth des valeurs primitives de type Number et pas l'objet Number en question. <br>L'objet Number possède 5 propriétés qui lui apparatiennent exclusivement :  </p>
+         <ul>
+             <li><strong>MIN_VALUE et MAX_VALUE </strong> : <em>nomprimN.MIN_VALUE </em> et <em>nomprimN.MAX_VALUE </em></li>
+             <li><strong>NEGATIVE_INFINITY et POSITIVE_INFINITY </strong>: <em>nomprimN.NEGATIVE_INFINITY</em> et <em>nomprimN.POSITIVE_INFINITY</em> </li>
+             <li><strong>NaN</strong> : nomprimN.NaN</li>
+         </ul>
+         <p>L'objet Number possède aussi 5 méthodes : </p>
+         <h4>1. la méthode toString() </h4>
+         <p>Pour transformer un type number en type string <em>nomprimN.toString() </em></p>
+         <h4>2. la méthode toFixed() </h4>
+         <p>Pour arrondir et transformer un number float en type string. <em>nomprimN.toFixed(nombre après la virgule) </em> </p>
+         <h4>3. la méthode toPrecision </h4>
+         <p>Elle permet de choisir la taille du nombre qui sera retourné(la quantité de chiffre à renvoyer pour le nombre) et transforme le nombre en type string : <em>nomprimN.toPrecision(qté) </em> </p>
+         <h4>4. la méthode toExponential() </h4>
+         <p>Elle permet de choisir le nombre de décimaux d'un nombre et le transforme en string : <em>nomprimN.toExponential(qté) </em> </p><br>
+         <h3>Quelques méthodes globales de Js </h3>
+         <p>Ces méthodes peuvent être utilisées avec tous les types de données.</p>
+         <h4>1. la méthode Number() </h4>
+         <p>Elle permet de convertir certaines variables Js en nombre comme des boléens ou des dates : <em>nomprimN.Number(boléen/date) </em> </p>
+         <h4>2. les méthodes parseInt() et parseFloat() </h4>
+         <p>Elle permettent de retourner un nombre entier ou décimal à partir d'un nombre de type string : <em>parseInt(nomprimN) </em> et <em>parseFloat(nomprimN) </em> </p>
+    </div>
+    
+    <footer>
+        <div id='pieds_de_page'>
+            <p>copyright</p>
+            <p>no passion, no success !</p>
+        </div>
+    </footer>
+</body>
+</html>

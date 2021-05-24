@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Opérateurs logiques , simplification des conditions et conditions ternaires </title>
+    <style>
+        *{
+                margin : 0px ;
+                padding : 0px ;
+            }
+            header{
+                height: 100px;
+                border: 1px solid rgba(123, 223, 77, 0.7);
+                padding: 100px 30% ;
+                margin-bottom: 28px;
+                background-image: url('../headandfooter/banner_linkedin.jpeg');
+                background-repeat: space;
+                background-size: contain;
+            }
+            header #titre{
+                word-spacing: 10px;
+                background-color: rgba(133, 223, 77, 0.6);
+                display: inline-block;
+                border-radius: 6px;
+                text-transform: uppercase;
+                text-align: center;
+                width: auto;
+            }
+            #contener{
+                width : 60%;
+                margin : auto ;
+                border-left: 1px solid;
+                padding-left: 30px;
+                background-color: rgba(28,196,5,0.1);
+                line-height: 30px;
+            }
+            #pieds_de_page{
+                height : 120px;
+                background-color : rgba(8,5,9,0.90);
+                color: silver;
+                align-content: center;
+                padding-top: 50px ;
+                margin-top: 28px;
+            }
+            #pieds_de_page p{
+                text-align: center;
+            }
+    </style>
+</head>
+<body>
+    <header>
+        <div id="titre">
+            <h2> Opérateurs logiques , simplification des conditions , et conditions ternaires </h2>
+        </div>
+    </header>
+    <div id='contener'>
+        <h4> Notions clés ou objectifs :</h4>
+         <ul>
+             <li>Quels sont les différents opérateurs logiques ?</li>
+             <li>A quoi servent-ils ?</li>
+             <li>Savoir simplifier les conditions et évaluer les valeurs avec les boléens</li>
+             <li>Savoir utiliser les conditions ternaires</li>
+         </ul><br><br>
+         <p> Les opérateurs logiques sont utilisés pour effectuer des comparaisons au sein des conditions. On en distingue 3 : <em>ET, OU, NON </em> ou <em>AND, OR, NO </em>. Ils sont respectivement matérialisés par : <strong>&&, ||, ! </strong> </p> 
+         <p>On afficher un message de salutation en fonction de l'heure de connexion lorsque l'internaute arrive sur le site; Voir les resultats de l'illustration <span id="illustration1"><em>ici</em></span>.</p> 
+         <script>
+             var heure = 13 ;
+
+            ill1 = document.getElementById("illustration1") ;
+            ill1.addEventListener("click", resultat1) ;
+
+            function resultat1(){
+                if(heure > 0 && heure <=12 ){
+                 alert ("Bonjour cher internaute !") ;
+             }
+             else if(heure > 12 && heure <= 17 ){
+                 alert("Bon après-midi !") ;
+             }
+             else if(heure > 17 && heure <= 23){
+                 alert("Bonsoir internaute !") ;
+             }
+             else if(heure == 0 || heure == 24){
+                 alert("Il est minuit !") ;
+             }
+             else{
+                 alert("Une erreur s'est produite...")
+             }
+            }
+         </script> 
+
+         <h3>Simplification des fonctions </h3>
+         <p>La syntaxe des conditions s'écrit en principe avec une variable boléenne afin de vérifier si oui ou non elles sont validées. Par nature, à une condition écrite sans variable boléenne est affectée la variable <strong>"true"</strong> si la variable à vérifier est différent du type null, undefined, NaN, et la chaîne de caractère vide. Pour simplifier donc l'écriture des conditions, on peut s'appuyer sur ce principe et n'affecter que le <strong>"false"</strong> ou l'opérateur <strong>"||"</strong> (différent) pour signifier que le revers de la condition. <br> Voir le resultat de l'exemple <span id="illustration2"><strong>ici</strong></span> et un autre exemple <span id="illustration3"><strong>ici</strong></span></p>
+            <script>
+             var heure = 10 ;
+
+             ill2 = document.getElementById("illustration2") ;
+             ill2.addEventListener("click",resultat2) ;
+
+             function resultat2(){
+                 if(heure == 12 == false){
+                     alert("Vous avez entré comme valeur : 10. \nIl n'est pas midi !") ;
+                 }
+                 else{
+                     alert("Vous avez entré comme valeur : 12. \nIl est midi, bien joué !") ;
+                 }
+             }
+
+         </script>
+         <script>
+            var heure = 12 ;
+
+            ill3 = document.getElementById("illustration3") ;
+            ill3.addEventListener("click",resultat3) ;
+
+            function resultat3(){
+                if(!(heure == 12)){
+                    alert("Vous avez entré comme valeur : 10. \nIl n'est pas midi !") ;
+                }
+                else{
+                    alert("Vous avez entré comme valeur : 12. \nIl est midi, bien joué !") ;
+                }
+            }
+        </script>
+        <h3>Les conditions ternaires</h3>
+        <p>Selon leur principe, on exécute un bout de code ou un autre en fonction de la validation d'une condition ou pas, tout ceci sur une même ligne de code et sans marque de condition (if, else if, else,...). <br>Voir le resultat de l'exemple <span id="illustration4"><strong>ici</strong></span>. </p>
+        <script>
+            var heure = 18 , slt = " " ;
+
+            ill4 = document.getElementById("illustration4") ;
+            ill4.addEventListener("click",resultat4) ;
+
+            function resultat4(){
+                slt = (heure <= 17) ? "Bonne journée !" : "Bonne soirée !" ;
+                alert (slt) ;
+            }
+        </script>
+    </div>
+    
+    <footer>
+        <div id='pieds_de_page'>
+            <p>copyright</p>
+            <p>no passion, no success !</p>
+        </div>
+    </footer>
+</body>
+</html>

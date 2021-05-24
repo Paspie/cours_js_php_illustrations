@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L'élément CANVAS et les dessins en Js </title>
+    <style>
+        *{
+                margin : 0px ;
+                padding : 0px ;
+            }
+            header{
+                height: 100px;
+                border: 1px solid rgba(123, 223, 77, 0.7);
+                padding: 100px 30% ;
+                margin-bottom: 28px;
+                background-image: url('../headandfooter/banner_linkedin.jpeg');
+                background-repeat: space;
+                background-size: contain;
+            }
+            header #titre{
+                word-spacing: 10px;
+                background-color: rgba(133, 223, 77, 0.6);
+                display: inline-block;
+                border-radius: 6px;
+                text-transform: uppercase;
+                text-align: center;
+                width: auto;
+            }
+            #contener{
+                width : 60%;
+                margin : auto ;
+                border-left: 1px solid;
+                padding-left: 30px;
+                background-color: rgba(28,196,5,0.1);
+                line-height: 30px;
+            }
+            #pieds_de_page{
+                height : 120px;
+                background-color : rgba(8,5,9,0.90);
+                color: silver;
+                align-content: center;
+                padding-top: 50px ;
+                margin-top: 28px;
+            }
+            #pieds_de_page p{
+                text-align: center;
+            }
+            #canvas1{background-color:beige;border: greenyellow solid;}
+            
+    </style>
+</head>
+<body>
+    <header>
+        <div id="titre">
+            <h2> L'élément CANVAS et les dessins en Javascript </h2>
+        </div>
+    </header>
+    <div id='contener'>
+        <h4> Notions clés ou objectifs :</h4>
+         <ul>
+             <li> Rectangle : plein, vide, dépassements, multiples </li>
+             <li>Lignes : multiples, épaisseurs, couleurs </li>
+             <li>Arc de cercles et cercles : vide, plein, multiples </li>
+             <li>Les dégradés : linéaires, radiaux </li>
+             <li>Insertion de texte dans les images</li>
+             <li>Rotation d'images : rotate() et translate() </li>
+         </ul><br><br>
+         <p> Le Canvas est un élément html qui permet de représenter des figures géométriques au sein d'une page web. Il ne sert que de conteneur pour les graphiques, ceux étant construits par des langages de script tel que le Js. L'élément Canvas représente une zone rectangulaire n'ayant par défaut ni bordure ni contenu. On déclare le Canvas (lui donnant une longueur&largeur) au sein de la page, on le stylise en CSS et on le récupère avec le DOM afin de faire les figures. </p>
+         <canvas id="canvas1" width="400px" height="300px"></canvas>
+         <h3>1- Les rectangles</h3>  
+         <h4>1.1- rectangle plein : fillStyle() et fillRect() </h4>
+         <canvas id="canvas2" width="200px" height="100px" style="border: rgb(152, 230, 51) solid ; background-color: beige;" ></canvas>
+         <script>
+             var canvas = document.getElementById("canvas2") ;
+             var moncont = canvas.getContext("2d") ;
+
+             moncont.fillStyle = "#0AA" ;
+             moncont.fillRect(50,15,140,70) ;
+         </script>
+         <h4>1.2- rectangle vide : strokeStyle() et strokeRect()  </h4>
+         <canvas id="canvas3" width="200px" height="100px" style="border: rgb(152, 230, 51) solid ; background-color: beige;" ></canvas>
+         <script>
+             var canvas = document.getElementById("canvas3") ;
+             var moncont = canvas.getContext("2d") ;
+            
+             moncont.lineWidth = "5"
+             moncont.strokeStyle = "#0AA" ;
+             moncont.strokeRect(50,15,140,70) ;
+         </script>
+         <h4>1.3- superposition des rectangles </h4>
+         <p>L'ordre de superposition dépend de l'ordre de déclaration des figures. </p>
+         <canvas id="canvas4" width="600px" height="300px" style="border: rgb(152, 230, 51) solid ; background-color: beige;" ></canvas>
+         <script>
+             var canvas = document.getElementById("canvas4") ;
+             var moncont = canvas.getContext("2d") ;
+            
+             moncont.fillStyle = "rgba(14,25,70,0.3) " ;
+             moncont.fillRect(50,30,90,75) ;
+
+             moncont.fillStyle = "rgb(12,75,18)" ;
+             moncont.fillRect(125,90,200,100) ;
+
+             moncont.lineWidth = "7" ;
+             moncont.strokeStyle = "rgb(75,18,11)" ;
+             moncont.strokeRect(310,175,100,85) ;
+         </script>
+         <h3>2- Les lignes</h3>
+         <h4>2.1- Ligne unique : strokeStyle(), moveTo(), lineTo(), stroke() </h4>
+         <canvas id="canvas5" width="200px" height="100px" style="border: rgb(152, 230, 51) solid ; background-color: beige;" ></canvas>
+         <script>
+             var canvas = document.getElementById("canvas5") ;
+             var moncont = canvas.getContext("2d") ;
+            
+             moncont.strokeStyle = "rgb(48,11,45)" ;
+             moncont.moveTo(50,25) ;
+             moncont.lineTo(150,75) ;
+             moncont.stroke() ;
+         </script>
+         <h4>2.2- multiples lignes</h4>
+         <canvas id="canvas6" width="200px" height="100px" style="border: rgb(152, 230, 51) solid ; background-color: beige;" ></canvas>
+         <script>
+             var canvas = document.getElementById("canvas6") ;
+             var moncont = canvas.getContext("2d") ;
+            
+             moncont.strokeStyle = "rgb(48,11,45)" ;
+             moncont.moveTo(50,25) ;
+             moncont.lineTo(150,5) ;
+             moncont.lineTo(100,95) ;
+             moncont.lineTo(190,70)
+             moncont.stroke() ;
+         </script>
+         <h4>2.3- différencier les lignes :beginPath() </h4>
+         <canvas id="canvas7" width="200px" height="100px" style="border: rgb(152, 230, 51) solid ; background-color: beige;" ></canvas>
+         <script>
+             var canvas = document.getElementById("canvas7") ;
+             var moncont = canvas.getContext("2d") ;
+            
+             moncont.beginPath() ;
+             moncont.lineWidth = "5" ;
+             moncont.strokeStyle = "rgb(48,11,45)" ;
+             moncont.moveTo(50,25) ;
+             moncont.lineTo(150,75) ;
+             moncont.stroke() ;
+
+             moncont.beginPath() ;
+             moncont.lineWidth = "8" ;
+             moncont.strokeStyle = "rgb(148,11,45)" ;
+             moncont.moveTo(150,15) ;
+             moncont.lineTo(15,85) ;
+             moncont.stroke() ;
+
+             moncont.beginPath() ;
+             moncont.lineWidth = "15" ;
+             moncont.strokeStyle = "rgb(18,111,35)" ;
+             moncont.moveTo(100,5) ;
+             moncont.lineTo(100,95) ;
+             moncont.stroke() ;
+         </script><br>
+         <h3>3- Les cercles et les arcs de cercle </h3>
+         <h4>3.1- vides : arc(), Math.PI </h4>
+         <canvas id="canvas8" width="300px" height="150px" style="border: rgb(152, 230, 51) solid ; background-color: beige;" ></canvas>
+         <script>
+             var canvas = document.getElementById("canvas8") ;
+             var moncont = canvas.getContext("2d") ;
+            
+             moncont.beginPath() ;
+             moncont.lineWidth = "2" ;
+             moncont.strokeStyle = "rgb(7,10,95) " ;
+             moncont.arc(75,75,50,0,Math.PI) ;
+             moncont.stroke() ;
+
+             moncont.beginPath() ;
+             moncont.lineWidth = "2" ;
+             moncont.strokeStyle = "rgb(87,78,15) " ;
+             moncont.arc(225,75,50,0,2*Math.PI) ;
+             moncont.stroke() ;
+         </script>
+         <h4>3.2- pleins : stroke devient fill </h4>
+         <canvas id="canvas9" width="300px" height="150px" style="border: rgb(152, 230, 51) solid ; background-color: beige;" ></canvas>
+         <script>
+             var canvas = document.getElementById("canvas9") ;
+             var moncont = canvas.getContext("2d") ;
+            
+             moncont.beginPath() ;
+             moncont.lineWidth = "2" ;
+             moncont.fillStyle = "rgb(7,10,95) " ;
+             moncont.arc(75,75,50,0,Math.PI) ;
+             moncont.fill() ;
+
+             moncont.beginPath() ;
+             moncont.lineWidth = "2" ;
+             moncont.fillStyle = "rgb(87,78,15) " ;
+             moncont.arc(225,75,50,0,2*Math.PI) ;
+             moncont.fill() ;
+         </script>
+         <h3>4- Les dégradés </h3>
+         <h4>4.1- Linéaires : createLinearGradient(), addColorStop() </h4>
+         <canvas id="canvas10" width="300px" height="150px" style="border: rgb(152, 230, 51) solid ; background-color: beige;" ></canvas>
+         <script>
+             var canvas = document.getElementById("canvas10") ;
+             var moncont = canvas.getContext("2d") ;
+             var lineaire = moncont.createLinearGradient(10,10,200,120) ;
+
+             lineaire.addColorStop(0,"#4C8") ;
+             lineaire.addColorStop(0.5,"#48C") ;
+             lineaire.addColorStop(1,"#A4A") ;
+
+             moncont.fillStyle = lineaire ;
+             moncont.fillRect(10,10,280,130) ;
+        </script>
+        <h4>4.2- radiaux : createRadialGradient(), addColorStop() </h4>
+        <canvas id="canvas11" width="300px" height="150px" style="border: rgb(152, 230, 51) solid ; background-color: beige;" ></canvas>
+         <script>
+             var canvas = document.getElementById("canvas11") ;
+             var moncont = canvas.getContext("2d") ;
+             var radial = moncont.createRadialGradient(150,75,15,150,75,70) ;
+
+             radial.addColorStop(0.15,"#4C8") ;
+             radial.addColorStop(0.75,"#48C") ;
+             radial.addColorStop(1,"#A4A") ;
+
+             moncont.beginPath() ;
+             moncont.fillStyle = radial ;
+             moncont.arc(150,75,75,0,2*Math.PI) ;
+             moncont.fill() ;
+        </script>
+        <h3>5- insérer des textes et des images dans le canvas </h3>
+        <h4>5.1- texte creu : strokeText() </h4>
+        <canvas id="canvas12" width="300px" height="150px" style="border: rgb(152, 230, 51) solid ; background-color: beige;" ></canvas>
+         <script>
+             var canvas = document.getElementById("canvas12") ;
+             var moncont = canvas.getContext("2d") ;
+
+             moncont.font = "bold 18px verdana, Arial, Serif" ;
+             moncont.strokeStyle = "#23C" ;
+             moncont.strokeText("Je suis un texte creu", 45, 60) ;
+         </script>
+         <h4>5.1- texte plein : fillText() </h4>
+         <canvas id="canvas13" width="300px" height="150px" style="border: rgb(152, 230, 51) solid ; background-color: beige;" ></canvas>
+          <script>
+              var canvas = document.getElementById("canvas13") ;
+              var moncont = canvas.getContext("2d") ;
+ 
+              moncont.font = "bold 18px verdana, Arial, Serif" ;
+             /* moncont.strokeStyle = "#23C" ; */
+              moncont.fillStyle = "#52D" ;
+              moncont.fillText("Je suis un texte plein", 45, 60) ;
+          </script>
+          <h4>5.3- inserer une image : drawImage() </h4>
+          <p>Après déclaration de l'image en HTML, on le met en display:none afin qu'elle ne s'affiche pas en HTML mais qu'en CSS. </p>
+          <canvas id="canvas14" width="300px" height="150px" style="border: rgb(152, 230, 51) solid ; background-color: beige;" ></canvas>
+          <img id="image" style="display: none;" src="WIN_20210423_23_43_41_Pro.jpg"> 
+           <script>
+              var canvas = document.getElementById("canvas14") ;
+              var moncont = canvas.getContext("2d") ;
+              var imagee = document.getElementById("image") ;
+
+              imagee.addEventListener("load",affich) ;
+
+              function affich(){
+                  moncont.drawImage(imagee,10,15,250,130) ;
+              }
+         </script>
+         <h3>6- incliner les dessins : rotate() et translate() </h3>
+         <p>Ces méthodes doivent être créées avant la mise en place du dessin. Avec la première, la rotation ne se fait qu'à partir du bord supérieur gauche du dessin. La deuxième permet de remédier à cela. </p>
+         <h4>6.1- rotate() </h4>
+         <canvas id="canvas15" width="600px" height="300px" style="border: rgb(152, 230, 51) solid ; background-color: beige;" ></canvas>
+         <script>
+             var canvas = document.getElementById("canvas15") ;
+             var moncont = canvas.getContext("2d") ;
+            
+             moncont.fillStyle = "rgba(14,25,70,0.3) " ;
+             moncont.fillRect(50,10,90,75) ;
+
+             moncont.rotate(Math.PI/10) ;
+             moncont.fillStyle = "rgb(12,75,18)" ;
+             moncont.fillRect(225,10,200,100) ;
+         </script>
+         <h4>6.2- translate() </h4>
+         <p>Elle permet de définir un nouveau centre de repère sur à partir du quel sera dessiné la figure suivante.  </p>
+         <canvas id="canvas16" width="400px" height="200px" style="border: rgb(152, 230, 51) solid ; background-color: beige;"></canvas>
+         <script>
+             var canvas = document.getElementById("canvas16") ;
+             var contexte = canvas.getContext("2d") ;
+
+             contexte.fillStyle = "#23B" ;
+             contexte.fillRect(30,15,70,40) ;
+
+             contexte.translate(70,40) ;
+             contexte.fillStyle = "#AA3" ;
+             contexte.fillRect(30,15,170,90) ;
+         </script>
+         <h4>6.3- combinaison rotate() et translate() </h4>
+         <canvas id="canvas17" width="400px" height="200px" style="border: rgb(152, 230, 51) solid ; background-color: beige;"></canvas>
+         <script>
+             var canvas = document.getElementById("canvas17") ;
+             var contexte = canvas.getContext("2d") ;
+             
+             contexte.translate(200,100) ;
+             contexte.fillStyle = "#B3B" ;
+             contexte.fillRect(0,0,80,80) ;
+
+             contexte.rotate(Math.PI/2) ;
+             contexte.fillStyle = "#23B" ;
+             contexte.fillRect(0,0,80,80) ;
+
+             contexte.rotate(Math.PI/2) ;
+             contexte.fillStyle = "#2B3" ;
+             contexte.fillRect(0,0,80,80) ;
+
+             contexte.rotate(Math.PI/2) ;
+             contexte.fillStyle = "#B32" ;
+             contexte.fillRect(0,0,80,80) ;
+         </script>
+
+
+    </div>
+    
+    <footer>
+        <div id='pieds_de_page'>
+            <p>copyright</p>
+            <p>no passion, no success !</p>
+        </div>
+    </footer>
+</body>
+</html>

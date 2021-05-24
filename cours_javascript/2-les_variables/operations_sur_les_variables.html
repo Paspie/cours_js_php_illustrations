@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Opérations sur les variables </title>
+    <style>
+        *{
+                margin : 0px ;
+                padding : 0px ;
+            }
+            header{
+                height: 100px;
+                border: 1px solid rgba(123, 223, 77, 0.7);
+                padding: 100px 30% ;
+                margin-bottom: 28px;
+                background-image: url('../headandfooter/banner_linkedin.jpeg');
+                background-repeat: space;
+                background-size: contain;
+            }
+            header #titre{
+                word-spacing: 10px;
+                background-color: rgba(133, 223, 77, 0.6);
+                display: inline-block;
+                border-radius: 6px;
+                text-transform: uppercase;
+                text-align: center;
+                width: auto;
+            }
+            #contener{
+                width : 60%;
+                margin : auto ;
+                border-left: 1px solid;
+                padding-left: 30px;
+                background-color: rgba(28,196,5,0.1);
+                line-height: 30px;
+            }
+            #pieds_de_page{
+                height : 120px;
+                background-color : rgba(8,5,9,0.90);
+                color: silver;
+                align-content: center;
+                padding-top: 50px ;
+                margin-top: 28px;
+            }
+            #pieds_de_page p{
+                text-align: center;
+            }
+    </style>
+</head>
+<body>
+    <header>
+        <div id="titre">
+            <h2> Opérations sur les variables </h2>
+        </div>
+    </header>
+    <div id='contener'>
+        <h4> Notions clés ou objectifs :</h4>
+         <ul>
+             <li> Manipulation des variables </li>
+             <li>Opérations mathématiques simples et priorités des calculs</li>
+             <li>Notations condensées pour les opérations </li>
+         </ul><br><br>
+         <h3> Application </h3>
+         <p>En Js, les calculs sont effectués en respectant les principes de la mathématique réelle. La priorité est donnée aux multiplications, divisions et parenthèses. les opérations peuvent s'écrivent de différentes manières, cela ne modifiera pas le résultat de l'opération. La valeur alertée correspond à la dernière valeur prise par une variable si elle a été ajoutée ou diminuée dans les opérations suivant sa déclaration. <br> Illustration : <br> var x=5 , y=4 , z=3 ; <br>
+
+            x=x+2 ; // ou x+=2 <br>
+            x=x-1 ; // ou x-=1 <br>
+            y=y*3 ; // ou y*=3 <br>
+            var mult=x*y ;  // pour y=y*3 par exemple, on peut aussi écrire y*=3<br>
+            var divid=y/z ; // pout y=y/x , on peut écrire y*=x<br>
+            var modul=17%3 // pour y=y%3 pour affecter au nouveau y le reste après sa division par 3, on peut écrire y%=3 <br>
+            var priorit= [6+(9+9/3)/3]%3 ;</p>
+            <p>Voir le resultat de l'illustration <span id="illustration1"><strong>ici </strong></span>. </p>
+         <script>
+             var x=5 , y=4 , z=3 ;
+
+             x=x+2 ;
+             x=x-1 ;
+             y=y*3 ;
+             var mult=x*y ;
+             var divid=y/z ;
+             var modul=17%3 ;
+             var priorit= [6+(9+9/3)/3]%3 ;
+
+             var ill1 = document.getElementById("illustration1") ;
+             ill1.addEventListener("click",operations) ;
+             function operations(){
+                alert("variable mult :" +mult+
+             "\nvariable divid :" +divid+
+             "\nvariable modul :" +modul+
+             "\nvariable priorit :" +priorit) ;
+             }
+         </script>   
+         
+    </div>
+    
+    <footer>
+        <div id='pieds_de_page'>
+            <p>copyright</p>
+            <p>no passion, no success !</p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L'objet MATH et ses méthodes</title>
+    <style>
+        *{
+                margin : 0px ;
+                padding : 0px ;
+            }
+            header{
+                height: 100px;
+                border: 1px solid rgba(123, 223, 77, 0.7);
+                padding: 100px 30% ;
+                margin-bottom: 28px;
+                background-image: url('../headandfooter/banner_linkedin.jpeg');
+                background-repeat: space;
+                background-size: contain;
+            }
+            header #titre{
+                word-spacing: 10px;
+                background-color: rgba(133, 223, 77, 0.6);
+                display: inline-block;
+                border-radius: 6px;
+                text-transform: uppercase;
+                text-align: center;
+                width: auto;
+            }
+            #contener{
+                width : 60%;
+                margin : auto ;
+                border-left: 1px solid;
+                padding-left: 30px;
+                background-color: rgba(28,196,5,0.1);
+                line-height: 30px;
+            }
+            #pieds_de_page{
+                height : 120px;
+                background-color : rgba(8,5,9,0.90);
+                color: silver;
+                align-content: center;
+                padding-top: 50px ;
+                margin-top: 28px;
+            }
+            #pieds_de_page p{
+                text-align: center;
+            }
+    </style>
+</head>
+<body>
+    <header>
+        <div id="titre">
+            <h2> l'objet MATH et ses méthodes </h2>
+        </div>
+    </header>
+    <div id='contener'>
+        <h4> Notions clés ou objectifs :</h4>
+         <ul>
+             <li> Maîtriser les méthodes usuelles de l'objet MATH </li>
+         </ul><br><br>
+         <p>L'objet MATH sert à réaliser des opérations sur les nombres. Il ne possède pas de constructeur, alors on ne pourra qu'appliquer ses méthodes sans pour autant créer un objet typique Math. </p> 
+         <h4>1. Les méthodes random() et round()  </h4>
+         <p>Elle retourne un nombre décimal aléatoire entre 0 et 1. Elle est utile pour les programme nécessitant la génération aléatoire de nombres : <em>var x = Math.random() ; </em> <br>Pour obtenir un nombre entre 0 et 1000 , il suffira de le multiplier par 1000 : <em>var x = Math.random()*1000 </em>.<br>Pour finalement avoir un nombre entier, on peut appliquer la méthode Math.round() au nombre : <em>var x = Math.random()*1000 ; var y = Math.round(x) ;</em> </p> 
+         <h4>2. Les méthodes floor() et ceil() </h4>
+         <p>Elles permettent respectivement d'arrondir un nombre décimal à l'entier inférieur et à l'entier supérieur : <em>Math.floor(x) </em> et <em>Math.ceil(x) </em> </p> 
+         <h4>3. Les méthodes Min() et Max() </h4>
+         <p>Pour retourner les nombres plus petit et plus grand dans une série de nombres. Comme paramètres, la série de nombres :<em>Math.min(0,6,87,5,9,-8,-34,78) </em> et <em>Math.max(0,6,87,5,9,-8,-34,78) </em> </p>
+         <h4>4. La méthode abs() </h4>
+         <p>Pour retourner la valeur absolue d'un nombre. Elle est utile pour les programmes ne travaillant qu'avec les nombres positifs : <em>Math.abs(x) </em> </p>
+         <h4>5. Autres méthodes de l'objet Math</h4>
+         <p>Il s'agit des méthodes power, squared, Pi, sinus et cos : <br><em>Math.pow(x,y) <br>Math.sqrt(x)<br>Math.cos(x)<br>Math.sin(x)<br>Math.PI </em> </p>
+    </div>
+    
+    <footer>
+        <div id='pieds_de_page'>
+            <p>copyright</p>
+            <p>no passion, no success !</p>
+        </div>
+    </footer>
+</body>
+</html>

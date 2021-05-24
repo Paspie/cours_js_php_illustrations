@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le switch</title>
+    <style>
+        *{
+                margin : 0px ;
+                padding : 0px ;
+            }
+            header{
+                height: 100px;
+                border: 1px solid rgba(123, 223, 77, 0.7);
+                padding: 100px 30% ;
+                margin-bottom: 28px;
+                background-image: url('../headandfooter/banner_linkedin.jpeg');
+                background-repeat: space;
+                background-size: contain;
+            }
+            header #titre{
+                word-spacing: 10px;
+                background-color: rgba(133, 223, 77, 0.6);
+                display: inline-block;
+                border-radius: 6px;
+                text-transform: uppercase;
+                text-align: center;
+                width: auto;
+            }
+            #contener{
+                width : 60%;
+                margin : auto ;
+                border-left: 1px solid;
+                padding-left: 30px;
+                background-color: rgba(28,196,5,0.1);
+                line-height: 30px;
+            }
+            #pieds_de_page{
+                height : 120px;
+                background-color : rgba(8,5,9,0.90);
+                color: silver;
+                align-content: center;
+                padding-top: 50px ;
+                margin-top: 28px;
+            }
+            #pieds_de_page p{
+                text-align: center;
+            }
+    </style>
+</head>
+<body>
+    <header>
+        <div id="titre">
+            <h2> Le switch </h2>
+        </div>
+    </header>
+    <div id='contener'>
+        <h4> Notions clés ou objectifs :</h4>
+         <ul>
+             <li>Utilisation du switch </li>
+         </ul><br><br>
+         <p>Le switch peut être utilisé alternativement aux formes de condition. Il est semblable à une condition, cependant il ne peut tester que l'égalité pas l'inégalité des variables, d'où sa limitation. On peut l'utiliser par exemple si on veut exécuter un bout de code à chaque tranche d'heure. Voir le resultat de l'exemple <span id="illustration1"><strong>ici</strong></span>.</p>
+         <script>
+             var heure = 16 ;
+
+             ill1 = document.getElementById("illustration1") ;
+             ill1.addEventListener("click",resultat1) ;
+
+             function resultat1(){
+                 switch(heure){
+                    case 15 :
+                         alert("il est 15H") ;
+                         break ;
+                    case 16 :
+                         alert("il est 16H") ;
+                         break ;
+                    case 17 :
+                         alert("il est 17H") ;
+                         break ;
+                    case 18 :
+                         alert("il est 18H") ;
+                         break ;
+                    case 19 :
+                         alert("il est 19H") ;
+                         break ;
+                    case 20 :
+                         alert("il est 20H") ;
+                         break ;
+                    case 21 :
+                         alert("il est 21H") ;
+                         break ;
+                    default :
+                    alert("Oups ! rien à afficher pour cette valeur.")
+                 }
+             }
+         </script>   
+    </div>
+    
+    <footer>
+        <div id='pieds_de_page'>
+            <p>copyright</p>
+            <p>no passion, no success !</p>
+        </div>
+    </footer>
+</body>
+</html>

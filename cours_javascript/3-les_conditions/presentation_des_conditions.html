@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Présentation des conditions en Js </title>
+    <style>
+        *{
+                margin : 0px ;
+                padding : 0px ;
+            }
+            header{
+                height: 100px;
+                border: 1px solid rgba(123, 223, 77, 0.7);
+                padding: 100px 30% ;
+                margin-bottom: 28px;
+                background-image: url('../headandfooter/banner_linkedin.jpeg');
+                background-repeat: space;
+                background-size: contain;
+            }
+            header #titre{
+                word-spacing: 10px;
+                background-color: rgba(133, 223, 77, 0.6);
+                display: inline-block;
+                border-radius: 6px;
+                text-transform: uppercase;
+                text-align: center;
+                width: auto;
+            }
+            #contener{
+                width : 60%;
+                margin : auto ;
+                border-left: 1px solid;
+                padding-left: 30px;
+                background-color: rgba(28,196,5,0.1);
+                line-height: 30px;
+            }
+            #pieds_de_page{
+                height : 120px;
+                background-color : rgba(8,5,9,0.90);
+                color: silver;
+                align-content: center;
+                padding-top: 50px ;
+                margin-top: 28px;
+            }
+            #pieds_de_page p{
+                text-align: center;
+            }
+    </style>
+</head>
+<body>
+    <header>
+        <div id="titre">
+            <h2> Présentation des conditions en Js </h2>
+        </div>
+    </header>
+    <div id='contener'>
+        <h4> Notions clés ou objectifs :</h4>
+         <ul>
+             <li>Définition des conditions </li>
+             <li>Connaître les différents opérateurs de comparaison </li>
+             <li>Comprendre comment le Js compare les valeurs</li>
+         </ul><br><br>
+         <h3> Les opérateurs : </h3> 
+         <p> "==" signifie <strong> c'est égal (en valeur) </strong> <br>
+            "!=" signifie <strong> c'est différent </strong> <br>
+            "===" signifie <strong> c'est égal (en valeur et en type) </strong> <br>
+            "!==" signifie <strong> c'est différent (en valeur et en type) </strong> <br>
+            "<" signifie <strong> c'est strictement inférieur </strong> <br>
+            "<=" signifie <strong> c'est inférieur ou égal </strong> <br>
+            ">" signifie <strong> c'est strictement supérieur </strong> <br>
+            ">=" signifie <strong> c'est supérieur ou égal </strong> <br>
+        </p> 
+        <h4>Application :</h4> 
+        var x=15 , y=26 ; <br>
+
+            var a= x < y ; <br>
+            var b = x > y ;<br>
+            var c = 17 <=24 ;<br>
+            var d = 17 >=24 ;<br>
+            var e = 21=="21" ;<br>
+            var f = 21==="21" ;<br>
+            var g = 21!="21";<br>
+            var h = 21!=="21" ;<br>
+        <p>Voir les résultats <span id="illustration1"><strong>ici </strong></span>. </p>
+        <script>
+            var x=15 ,y=26 ;
+
+            var a = x<y ;
+            var b = x>y ;
+            var c = 17<=24 ;
+            var d = 17>=24 ;
+            var e = 21=="21" ;
+            var f = 21==="21" ;
+            var g = 21!="21";
+            var h = 21!=="21" ;
+
+            var ill1 = document.getElementById("illustration1");
+            ill1.addEventListener("click",resultat1);
+            function resultat1(){
+                alert("la variable a renvoie : "+a+
+            "\nlavariable b renvoie :" +b+
+            "\nlavariable c renvoie :" +c+
+            "\nlavariable d renvoie :" +d+
+            "\nlavariable e renvoie :" +e+
+            "\nlavariable f renvoie :" +f+
+            "\nlavariable g renvoie :" +g+
+            "\nlavariable h renvoie :" +h) ;
+            }
+
+            
+        </script>
+    </div>
+    
+    <footer>
+        <div id='pieds_de_page'>
+            <p>copyright</p>
+            <p>no passion, no success !</p>
+        </div>
+    </footer>
+</body>
+</html>

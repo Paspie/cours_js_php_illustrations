@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le Document Object Model</title>
+    <style>
+        *{
+                margin : 0px ;
+                padding : 0px ;
+            }
+            header{
+                height: 100px;
+                border: 1px solid rgba(123, 223, 77, 0.7);
+                padding: 100px 30% ;
+                margin-bottom: 28px;
+                background-image: url('../headandfooter/banner_linkedin.jpeg');
+                background-repeat: space;
+                background-size: contain;
+            }
+            header #titre{
+                word-spacing: 10px;
+                background-color: rgba(133, 223, 77, 0.6);
+                display: inline-block;
+                border-radius: 6px;
+                text-transform: uppercase;
+                text-align: center;
+                width: auto;
+            }
+            #contener{
+                width : 60%;
+                margin : auto ;
+                border-left: 1px solid;
+                padding-left: 30px;
+                background-color: rgba(28,196,5,0.1);
+                line-height: 30px;
+                font-size: 18px ;
+            }
+            #pieds_de_page{
+                height : 120px;
+                background-color : rgba(8,5,9,0.90);
+                color: silver;
+                align-content: center;
+                padding-top: 50px ;
+                margin-top: 28px;
+            }
+            #pieds_de_page p{
+                text-align: center;
+            }
+    </style>
+</head>
+<body>
+    <header>
+        <div id="titre">
+            <h2> Le Document Object Model (DOM) </h2>
+        </div>
+    </header>
+    <div id='contener'>
+        <h4> Notions clés ou objectifs :</h4>
+        <ul>
+            <li> Accéder à un élément html </li>
+            <li>Modifier du contenu html par le DOM</li>
+            <li>Ajouter/insérer des éléments html</li>
+            <li>Modifier/supprimer des éléments html</li>
+            <li>Naviguer dans le DOM</li>
+        </ul><br><br>
+         <p> Le DOM est un interface de programmation créé automatiquement par le navigateur lors du chargement d'une page web, qui permet de dynamiser le code html&css grâce au Js. Il est composé naturellement de 3 partie, la 1ère permettant de manipuler le XML, la 2e pour le HTML et la 3e accessible aux XML et HTML. Pour simplifier, on va s'intéresser à la partie HTML du DOM. <br> Le DOM est un standard de programmation qui considère les éléments html d'une page web comme des <strong>objets</strong>, et donc qui possèdent des <strong>propriétés/méthodes</strong>. Le DOM va également permettre de <strong>déclencher des évènements pour apporter justement du dynanisme à la page web</strong>. <br> <strong><em>structure du DOM </em></strong> : Tout élément dans une page html est considéré comme un <strong>Noeud</strong> ou en anglais <strong>Node</strong>, en partant du document lui-même déjà, les attributs, le texte dans les éléments, etc. Le terme Node est un terme générique pour définir tous les objets contenus dans le DOM. Il existe plusieurs types de nodes en fonction des différents objets html (par exemple : "<em>elementNode </em>" pour les éléments html, "<em>textNode</em>" pour les textes, etc.).<br>Le DOM html est conçu comme une hiérarchie d'une suite de noeuds. On peut donc finalement percevoir une page html comme un <strong>arbre</strong>. <br> Lors du chargement de la page, le navigateur va automatiquement créer le DOM et le document html de la page en question sera présenté dedans par un objet appelé <strong><em>'document'</em></strong> qui comportera ses propres propriétés et méthodes. Tous les autres objets créés par la suite par le DOM seront contenus dans l'objet père <em>'document'</em> et possèderont en plus de leurs propres propriétés et méthodes, celles de l'objet père <em>'document'</em> en application du principe d'héritage. <br> </p>   
+         <br>
+        <h3>1.1 Comment accéder à un élément du DOM ?</h3>
+        <h4>1.1.1 Avec la propriété 'getElementById()' </h4>
+        <p>C'est une méthode de l'objet 'document' permettant d'accéder à un objet précis qui possède un attribut 'id' particulier. C'est la méthode la plus utilisée aujourd'hui. Elle est sensible à la casse, prend comme paramètre la valeur l'id, elle renvoie l'élément en tant que objet s'il est trouvé et la valeur null si non. </p>
+        <h4>1.1.2 La propriété 'getElementByTagName()' </h4>
+        <p>Elle est utilisée pour accéder à tous les éléments d'un même genre, par exemple 'accéder à tous les "p"'. </p>
+        <h4>1.1.3 La propriété 'getElementByClassName()' </h4>
+        <p>Elle utilisée pour  accéder à tous les éléments d'une même class. </p>
+        <h4>1.1.4 Les propriétés querySelector() et querySelectorAll() </h4>
+        <p>Elles permettent d'accéder à des éléments html correspondant à un certain sélecteur CSS. Elles sélectionnent respectivement un élément à l'intérieur du sélecteur et tous les éléments appartenant à un sélecteur en les renvoyant sous forme de tableau. </p>
+        <p>On va aussi pouvoir accéder aux contenus se trouvant à l'intérieur des balises d'un élément html en utilisant la propriété <strong><em>innerHTML</em></strong>. Par exemple : <em>"var exp = document.getElementById("messbienvenu").innerHTML ; "</em>. De même on va pouvoir récupérer uniquement le texte qui se trouve entre ces balises avec <em><strong>textContent</strong></em> : <em>var exp2 = document.querySelector(".messaurevoir").textContent ; </em>. <br> Les méthodes innerHTML et textContent ne s'appliquent que sur les noeuds de type "element", et en aucun cas sur le noeud "document" (ça n'aurait de sens). Par ailleurs il est également possible d'accéder directement à une collection d'éléments html en particulier en les renvoyant sous forme de tableau, par exemple "body", "links" : <em>var exp3 = document.title ; </em> ou encore <em>var exp4 = document.body ;</em> </p><BR>
+        <h3>1.2 Comment modifier du contenu html par le DOM ?</h3>
+        <p>Les propriétés et méthodes de type <strong>element</strong>(innerHTML, textContent, etc) s'appliquent aux objets de type element et les propriétés et méthodes de type <strong>document</strong>(getElementById, getElementByClassName,getElementByTagName,etc) s'appliquent à l'objet document. Pour modifier un élément, on va le réécrire avec la valeur souhaitée, en utilisant la propriété <em>innerHTML</em>. <strong><span id="illustration1">Illustration</span></strong> (action à faire : cliquer sur le titre) : <br> TEXT : <h2 id="montitre">Je suis un titre écrit en h2 avec comme id 'montitre'</h2> </p>
+        <script>
+           // ill1 = document.getElementById("illustration1") ;
+           // ill1.addEventListener("click", resultat1) ;
+
+           // function resultat1(){
+                montitre1 = document.getElementById("montitre") ;
+                montitre1.addEventListener("click", modiftitre) ;
+
+                function modiftitre(){
+                    montitre1.innerHTML = "Je suis le titre de l'id 'montitre', modifié" ;
+                }
+           // }
+        </script>
+        <p>Pour ajouter du contenu, on va utiliser le signe <strong>+=</strong>. <strong>Illustration</strong> (cliquer sur le titre ci-dessous) : <br> TEXT : <h2 id="montitre2">Je suis un titre écrit en h2 avec comme id 'montitre'.</h2> </p>
+        <script>
+                montitre2 = document.getElementById("montitre2") ;
+                montitre2.addEventListener("click", modiftitre2) ;
+
+                function modiftitre2(){
+                    montitre2.innerHTML += " Voici la partie ajoutée du titre de l'id 'montitre'" ;
+                }
+        </script>
+        <p>On peut aussi ajouter des balises html en utilisant la propriété innerHTML : <strong>Illustration </strong>(cliquer sur le texte ci-dessous) : <br> TEXT : <h2 id="montitre3">Je suis un titre écrit en h2 avec comme id 'montitre'.</h2></p>
+        <script>
+                montitre3 = document.getElementById("montitre3") ;
+                montitre3.addEventListener("click", modiftitre3) ;
+
+                function modiftitre3(){
+                    montitre3.innerHTML += "<mark> je suis la modif avec les balise 'mark'</mark>" ;
+                }
+        </script>   
+        <p>Pour modifier la valeur d'un attribut html, on va utiliser le nom de l'attribut(href par exemple), et affecter la valeur souhaitée à l'attribut ciblé. <strong><span id="illustration4">Illustration</span></strong> (cliquer sur illustration et ouvrir le lien à nouveau) :</p> TEXT : <p>Je suis un <a href="http://google.com">lien</a> avec comme attribut initial href vers google.</p> 
+        <script>
+           /* ill4 = document.getElementById("illustration4") ;
+            ill4.addEventListener("click", resultat4) ;
+
+            function resultat4(){
+                lien4 = docment.querySelector("a[href='http://google.com']") ;
+                lien4.href = "http://wikipedia.org" ;
+            } */
+
+        </script>
+        <script>
+            document.querySelector("a[href='http://google.com']").href="http://wikipedia.org" ;
+        </script>
+        <p>Il est également possible de cibler une classe html en utilisant par contre le propriété <strong>className</strong>, la propriété <strong>class</strong> étant déjà reservée. Par exemple <em>document.querySelector(".marque").className = "marques" </em>. Pour tout autre attribue, on utiliser <strong><em>getAttribut</em></strong> pour accéder à lui, et <strong><em>setAttribut</em></strong> pour le modifier.<br> Pour modifier le css d'un élément html, on va utiliser le propriété <strong><em>style</em></strong> de l'objet element, suivie de la propriété à ajouter ou à modifier; par exemple : <em>document.getElementById("titre2").style.color = "orange" ;</em> ou <em>document.querySelector("mat").style.fontsize = "26px" ; </em>. Même si tout ces changements peuvent être faits directement sur le dossier css, l'intérêt de Js ici est de procéder aux modifications en temps réel selon les préférences de l'utilisation. On peut par exemple créer des boutons qui vont permettre aux utilisateurs de modifier tel ou tel élément ou d'en rajouter sur nos pages. </p><br>
+        <h3>1.3 Comment ajouter ou insérer des elements html ?</h3>
+        <p>On va pouvoir avec le DOM : créer un nouveau paragraphe avec <strong>document.createElement("p") </strong> , attribuer un nouveau 'id' avec <strong>id</strong> , créer un nouveau texte(que contiendra notre paragraphe) avec <strong>createTextNode("le texte") </strong>, insérer le texte créé dans le paragraphe avec <strong>appendChild(texte)</strong>, et finalement insérer l'élément paragraphe dans le body avec <strong>document.body.appendChild(paragraphe)</strong>. <strong>Illustration</strong> : </p>
+        <script>
+            var paran = document.createElement("p") ;
+            paran.id = "idparan" ;
+            var texten = document.createTextNode("je suis le texte créer avec le DOM") ;
+            paran.appendChild(texten) ;
+            document.body.appendChild(paran) ;
+        </script>
+        <p id="titre1_4">Pour ajouter le texte à un endroit précis de la page, on va utiliser la propriété <strong>insertBefore()</strong> . Exemple : </p>
+        <script>
+            var paran = document.createElement("p") ;
+            paran.id = "idparan" ;
+            var texten = document.createTextNode("je suis le texte inséré avec la pté insertBefore") ;
+            paran.appendChild(texten) ;
+            var insavant = document.getElementById("titre1_4") ;
+            document.body.insertBefore(paran,insavant) ;
+        </script>
+        <p>Texte pour exemple ci-dessus</p>
+        <h3>1.4 Comment modifier ou supprimer un élément html ? </h3>
+        <p>Pour supprimer un élément, on va pouvoir : accéder à l'élément à supprimer, sélectionner son élément parent, et supprimer l'élément avec <strong>removeChild() </strong>. Exemple : </p>
+        <h2 id="titresupp">titre d'exemple à supprimer</h2>
+        <script>
+            var suppr = document.getElementById("titresupp") ;
+            var elpar = document.getElementById("contener") ;
+           // elpar.removeChild(suppr) ;
+        </script>
+        <p>Pour modifier les noeuds ou les remplacer, on va pouvoir : après avoir sélectionner l'élément à remplacer et son élément parent, on va créer le nouveau élément avec <strong>document.createElement("nouv élmt)</strong>, lui attribuer un id avec <strong>id</strong>, ajouter du contenu avec <strong>innerHTML</strong>? et remplacer avec <strong>replaceChild(nouvélmt,anciélmt) </strong>.Exemple : </p>
+        <h2 id="titreremp">titre à remplacer</h2>
+        <script>
+            var ancit = document.getElementById("titreremp") ;
+            var elmtpar = document.getElementById("contener") ;
+            var nouvt = document.createElement("h2") ;
+            nouvt.id = "nouvtitre" ;
+            nouvt.innerHTML = "Je suis le nouveau titre" ;
+           // elmtpar.replaceChild(nouvt,ancit) ;
+        </script>
+        <h3>1.5 Comment naviguer dans le DOM ? </h3>
+        <p>Il peut arriver qu'on ne puisse pas accéder à certains éléments parents ou enfants par les techniques vues jusqu'ici. Dans ces cas, on va pouvoir utiliser les propriétés suivantes pour les atteindre : <strong><em>parentNode() , firstChild() et lastChild() , childNode() et nodeValue() , nextCibling() et previewCibling() </em></strong> </p>
+        <h4>1.5.1 La pté parentNode() </h4>
+        <p>C'est une pté de l'objet element et applicable qu'aux objets element, elle permet d'accéder aux nodes parents dans le DOM html. Par exemple une 'div' sans attribut et contenant des paragraphes, on accède au paragraphe et ensuite à la 'div' pour modifier par exemple le style de la 'div'. Par exemple : <em>document.querySelector("paragraphe").parentNode.style.color = "yellow" ;</em> </p>
+        <h4>1.5.2 ChildNode() et nodeValue() </h4>
+        ChidNode permet d'accéder au noeuds enfants, elle renvoie un tableau avec tous les enfants qu'on va pouvoir récupérer individuellement en définissant l'index spécifique ou collectivement avec la boucle. Les espaces entre les éléments sont comptabilisés ici. Selon le DOM, les nodes enfants ici ne contiennent pas de texte, de ce fait on va devoir utiliser la propriété <strong>nodeValue</strong> pour accéder au texte. Exemple : <br> <em>var texte = document.body.childNodes[3].childNodes[1].childNodes[0].nodeValue ; alert(texte) ;</em> </p>
+        <h4>1.5.3 FirstChild() et lastChild() </h4>
+        <p>Elles permettent d'accéder respectivement aux premier et dernier enfant d'un noeud. Le texte est comptabilisé comme un noeud texte, les espaces aussi sont comptabilisés. <em>var elmt = document.querySelectorAll("paragraphe")[1].firstchild.nodeValue ; alert (elmt) </em>. Ici on peut utiliser à la place de nodeValue textContent ou innerHTML </p>
+        <h4>1.5.4 nextCibling() et previewsSibling() </h4>
+        <p>Elles permettent d'accéder aux noeuds frères de même niveau ou à celui suivant le noeud ciblé. <em> document.querySelector("id").nextSibling.nextSibling.innerHTML = "contenu modifié" </em> </p>
+    </div>
+    
+    <footer>
+        <div id='pieds_de_page'>
+            <p>copyright</p>
+            <p>no passion, no success !</p>
+        </div>
+    </footer>
+</body>
+</html>

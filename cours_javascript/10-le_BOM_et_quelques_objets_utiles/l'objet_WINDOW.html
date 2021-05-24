@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le BOM et l'objet WINDOW : quelques méthodes </title>
+    <style>
+        *{
+                margin : 0px ;
+                padding : 0px ;
+            }
+            header{
+                height: 100px;
+                border: 1px solid rgba(123, 223, 77, 0.7);
+                padding: 100px 30% ;
+                margin-bottom: 28px;
+                background-image: url('../headandfooter/banner_linkedin.jpeg');
+                background-repeat: space;
+                background-size: contain;
+            }
+            header #titre{
+                word-spacing: 10px;
+                background-color: rgba(133, 223, 77, 0.6);
+                display: inline-block;
+                border-radius: 6px;
+                text-transform: uppercase;
+                text-align: center;
+                width: auto;
+            }
+            #contener{
+                width : 60%;
+                margin : auto ;
+                border-left: 1px solid;
+                padding-left: 30px;
+                background-color: rgba(28,196,5,0.1);
+                line-height: 30px;
+            }
+            #pieds_de_page{
+                height : 120px;
+                background-color : rgba(8,5,9,0.90);
+                color: silver;
+                align-content: center;
+                padding-top: 50px ;
+                margin-top: 28px;
+            }
+            #pieds_de_page p{
+                text-align: center;
+            }
+    </style>
+</head>
+<body>
+    <header>
+        <div id="titre">
+            <h2> Le BOM et l'objet WINDOW : quelques méthodes  </h2>
+        </div>
+    </header>
+    <div id='contener'>
+        <h4> Notions clés ou objectifs :</h4>
+         <ul>
+             <li>C'est quoi le Browser Object Model ?</li>
+             <li>L'objet WINDOW</li>
+             <li>Les méthodes: open(), close() et resizeTo() de window </li>
+         </ul><br><br>
+         <p>Tandis que le DOM permet d'accéder aux éléments html d'une page web, le BOM quant à lui permet d'accéder au navigateur, précisément à la fenêtre actuellement ouverte en utilisant le Js. Il n'existe pas de standard officiel définissant le BOM comme chez le DOM, mais puisque les navigateurs supportent de nos jours les mêmes pptés, méthodes, objets, on va pouvoir effectuer les mêmes opérations quelque soit le contexte.<br> L'objet Window est l'objet le plus célèbre et le plus utilisé du BOM. Il représente la fenêtre du navigateur et est par nature <strong>implicite</strong> en effet toutes les fonctions, variables, méthodes, propriétés globales de Js lui appartiennent, mais s'écrivent sans nécessairement la mention <em>window</em>. Par exple la méthode <em>alert() </em> peut s'écrire <em>window.alert()</em>. </p>
+         <h3>La méthode open() </h3>
+         <p>Elle permet d'ouvrir  un nouvel onglet ou une nouvelle fenêtre. Elle prend 4 arguments tous optionnels. <em>window.open("http://google.com","_blank",width=400,heigth=300, true) </em>. _blank indique la nouvelle fenêtre à ouvrir et true si elle remplace la fenêtre actuelle. </p>
+         <h3>La méthode close() </h3>
+         <p>Elle permet de fermer une fenêtre ou un onglet. Elle n'a pas besoin d'arguments pour fonctionner, et on l'utilise généralement avec la méthode open(), pour fermer la nouvelle fenêtre une fois certaines conditions remplies ou aprèd l'éxécution d'un code. On peut par exemple avoir 2 boutons pour ouvrir et fermer, on attaché ensuite les méthodes open() et close à chacun d'eux : <em>function fouvrir(){nvlfen=window.open("http://googl...")} </em> et <em>function ffermer(){nvlfen.close()} </em> </p>  
+         <h4>La méthode resizeTo() </h4>
+         <p>Elle permet de redimensionner une fenêtre ou un onglet.Elle prend en arguments la largeur et la hauteur souhaitées. Comme ci-dessus, on peut faire un troisième bouton auquel on attache l'action resize : <em>function modif(){nvlfen.resizeTo(200,180)} </em> </p>  
+    </div>
+    
+    <footer>
+        <div id='pieds_de_page'>
+            <p>copyright</p>
+            <p>no passion, no success !</p>
+        </div>
+    </footer>
+</body>
+</html>

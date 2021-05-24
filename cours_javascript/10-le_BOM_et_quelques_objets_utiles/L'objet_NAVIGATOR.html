@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L'objet NAVIGATOR </title>
+    <style>
+        *{
+                margin : 0px ;
+                padding : 0px ;
+            }
+            header{
+                height: 100px;
+                border: 1px solid rgba(123, 223, 77, 0.7);
+                padding: 100px 30% ;
+                margin-bottom: 28px;
+                background-image: url('../headandfooter/banner_linkedin.jpeg');
+                background-repeat: space;
+                background-size: contain;
+            }
+            header #titre{
+                word-spacing: 10px;
+                background-color: rgba(133, 223, 77, 0.6);
+                display: inline-block;
+                border-radius: 6px;
+                text-transform: uppercase;
+                text-align: center;
+                width: auto;
+            }
+            #contener{
+                width : 60%;
+                margin : auto ;
+                border-left: 1px solid;
+                padding-left: 30px;
+                background-color: rgba(28,196,5,0.1);
+                line-height: 30px;
+            }
+            #pieds_de_page{
+                height : 120px;
+                background-color : rgba(8,5,9,0.90);
+                color: silver;
+                align-content: center;
+                padding-top: 50px ;
+                margin-top: 28px;
+            }
+            #pieds_de_page p{
+                text-align: center;
+            }
+    </style>
+</head>
+<body>
+    <header>
+        <div id="titre">
+            <h2> L'objet NAVIGATOR </h2>
+        </div>
+    </header>
+    <div id='contener'>
+        <h4> Notions clés ou objectifs :</h4>
+         <ul>
+             <li> Les méthodes de l'objet NAVIGATOR </li>
+         </ul><br><br>
+         <p> Il permet de récupérer les informations relatives au navigateur de l'user, ses préférences, la langue y utilisée,... Ces informations ne sont jamais totalement fiables car provenant de l'utilisateur. L'objet possède 10 propriétés : <em>navigator.language, navigator.geolocation, .product (pour le nom du moteur de recherche), .cookieEnable, appName(pour le nom du navigateur), appVersion, online, platform, userAgent(l'entête du fichier useragent utilisé) </em> , et la méthode <em>javaEnable</em>(pour savoir si java est activé dans le navigateur ou pas).  </p>   
+         <h3>La propriété geolocation et getCurrentPosition() </h3>
+         <p>Elle permettent respectivement de vérifier si la position est disponible, et de récupérer les informations sur la position.</p>
+         <p id="para">Cliquez moi pour savoir votre position actuelle.</p>
+         <script>
+             var par1 = document.getElementById("para") ;
+             var loca = navigator.geolocation ;
+
+             par1.addEventListener("click",localisat) ;
+
+            function localisat(){
+             (function (){
+                if(loca){
+                    loca.getCurrentPosition(coordonnees) ;
+                }
+                else{
+                    par1.innerHTML="La localisation de cet utilisateur n'est pas disponible." ;
+                } 
+             })() ;
+             function coordonnees(x){
+                 par1.innerHTML="Coordonnées position actuelle : <br>Latitude : "+x.coords.latitude+"<br>Longitude : "+x.coords.longitude ;
+                 par1.style.color = "rgb(95,34,70)" ;
+                } 
+            }
+         </script>
+    </div>
+    
+    <footer>
+        <div id='pieds_de_page'>
+            <p>copyright</p>
+            <p>no passion, no success !</p>
+        </div>
+    </footer>
+</body>
+</html>

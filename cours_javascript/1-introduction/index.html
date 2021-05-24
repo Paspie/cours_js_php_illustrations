@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>cours de javascript</title>
+        <meta charset='utf-8'/>
+        <style>
+           *{
+                margin : 0px ;
+                padding : 0px ;
+            }
+            header{
+                height: 100px;
+                border: 1px solid rgba(123, 223, 77, 0.7);
+                padding: 100px 30% ;
+                margin-bottom: 28px;
+                background-image: url('../headandfooter/banner_linkedin.jpeg');
+                background-repeat: space;
+                background-size: contain;
+            }
+            header #titre{
+                word-spacing: 10px;
+                background-color: rgba(133, 223, 77, 0.6);
+                display: inline-block;
+                border-radius: 6px;
+                text-transform: uppercase;
+                text-align: center;
+                width: auto;
+            }
+            #contener{
+                width : 60%;
+                margin : auto ;
+                border-left: 1px solid;
+                padding-left: 30px;
+                background-color: rgba(28,196,5,0.1);
+                line-height: 30px;
+            }
+            #pieds_de_page{
+                height : 120px;
+                background-color : rgba(8,5,9,0.90);
+                color: silver;
+                align-content: center;
+                padding-top: 50px ;
+                margin-top: 28px;
+            }
+            #pieds_de_page p{
+                text-align: center;
+            }
+        </style>
+        <script>
+            alert("Ce est un message écrit à l'intérieur du 'head' du document"); /*code js écrit dans la partie 'head' et les marques d'un commentaire multilignes*/
+        </script>
+    </head>
+    <body>
+        <header>
+            <div id="titre">
+                <h2>Partie introductive </h2>
+            </div>
+        </header>
+        <div id='contener'>
+            <p>Ce cours de javascript est constitué des notions les plus usuelles dans ce langage, et est illustré par des exemples les plus communs. Le javascript est un langage de programmation majoritairement utilisé client-side, orienté objet, qui va permettre de manipuler dynamiquement le html et le css des pages.<br>
+            Le code Js peut être écrit aussi bien dans la partie "head" ou "body" de la page html que dans un autre fichier séparé (voir les commentaires relatifs aux script js de ce document). <br> Il existe aussi ici des monocommentaires (//) et des multicommentaires (/*...*/), l'illustration a bien été faite de le script de ce cours. </p>    
+        </div>
+        <script>
+            alert("Ce est un message codé à écrit à l'intérieur dans le 'body' du document"); //code js écrit dans la partie body et les marques d'un commentaire monoligne
+        </script>
+        <footer>
+            <div id='pieds_de_page'>
+                <p>copyright</p>
+                <p>no passion, no success !</p>
+            </div>
+        </footer>
+        <script src="javascript_file.js"></script> <!--code js écrit dans un fichier séparé et les marques d'un commentaire html-->
+    </body>
+</html>

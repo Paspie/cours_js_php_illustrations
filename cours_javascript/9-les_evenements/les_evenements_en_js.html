@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Les évènements en Javascript </title>
+    <style>
+        *{
+                margin : 0px ;
+                padding : 0px ;
+            }
+            header{
+                height: 100px;
+                border: 1px solid rgba(123, 223, 77, 0.7);
+                padding: 100px 30% ;
+                margin-bottom: 28px;
+                background-image: url('../headandfooter/banner_linkedin.jpeg');
+                background-repeat: space;
+                background-size: contain;
+            }
+            header #titre{
+                word-spacing: 10px;
+                background-color: rgba(133, 223, 77, 0.6);
+                display: inline-block;
+                border-radius: 6px;
+                text-transform: uppercase;
+                text-align: center;
+                width: auto;
+            }
+            #contener{
+                width : 60%;
+                margin : auto ;
+                border-left: 1px solid;
+                padding-left: 30px;
+                background-color: rgba(28,196,5,0.1);
+                line-height: 30px;
+            }
+            #pieds_de_page{
+                height : 120px;
+                background-color : rgba(8,5,9,0.90);
+                color: silver;
+                align-content: center;
+                padding-top: 50px ;
+                margin-top: 28px;
+            }
+            #pieds_de_page p{
+                text-align: center;
+            }
+    </style>
+</head>
+<body>
+    <header>
+        <div id="titre">
+            <h2> les évènements en Js </h2>
+        </div>
+    </header>
+    <div id='contener'>
+        <h4> Notions clés ou objectifs :</h4>
+         <ul>
+             <li> savoir déclencher un évènement </li>
+             <li>maîtriser les évènements les plus courants </li>
+             <li>savoir réagir aux évènements via le DOM</li>
+         </ul><br><br>
+         <p>Les évènements peuvent être initiés soit par les utilisateurs soit par le navigateur. Les attributs usuels de type HTML sont : <strong>'onclick' , 'onmouse', 'onmouseout', 'onkeydown'. </strong> La méthode <em>'this'</em> fait reférence à l'objet selon le context, ie l'objet html sujet de l'évènement. Par exemple : <em> p onclick="this.textContent = 'Bonjour' "  </em>.<br> Avec le DOM, on va pouvoir assigner les gestionnaires d'évènements à des éléments html spécifiques, par 2 méthodes : en utilisant les <strong>propriétés qui vont assigner des évents</strong> ou en utilisant la méthode <strong>addEventListener</strong>. <br> Avec la première, on sélectionne l'élément html, ensuite on lui attribue un attribut html ('onclick' par exemple) en terme de propriété et on instruit l'action souhaitée. </p> 
+         <h2 id="titree">TITRE D'EXPLE, cliquez moi ! </h2>
+         <script>
+             var titr = document.getElementById("titree") ;
+             titr.onclick = function(){ //code pas exécuté car existence d'une action plus sensible. Cette technique ne pouvant gérer qu'un seul gestionnaire d'évents à la fois.
+                 this.innerHTML="<strong>Je suis un exple !</strong>" ;
+                 this.style.color="green" ;
+             } 
+             titr.onmouseover = function(){
+                 this.textContent="maintenant tu peux cliquer !" ;
+                 this.style.color='orange' ;
+             }
+         </script> <br> 
+         <h3>La méthode addEventListener() </h3>
+         <p>Elle prend comme arguments le nom de l'élément sélectionné et le code à exécuter (ou l'action à exécuter). Ici les attributs html s'écrivent sans le "on", par exple "onclick" devient "click". <br>L'intérêt de cette méthode est de pouvoir lier plusieurs gestionnaires d'évent de même type sur un même élément html, par exemple afficher différents messages suite à un click. </p>
+         <p id="exple1">Je suis l'exple, faites passer la sourie sur moi !</p>
+         <script>
+            exple = document.getElementById("exple1") ;
+            exple.addEventListener("mouseover",resultat1) ;
+            exple.addEventListener("click",resultat2) ;
+            exple.addEventListener("mouseout",resultat3) ;
+             function resultat1(){
+                 this.innerHTML="Attends, clique pour voir la 2e action !" ;
+                 this.style.color="brown" ;
+                } 
+            function resultat2(){
+                this.innerHTML="Bien joué, c'est terminé !" ;
+                this.style.color="rgba(220,80,175,0.9)" ;
+            }
+            function resultat3(){
+                this.innerHTML="Je suis l'exple, faites passer la sourie sur moi !" ;
+                this.style.color="black" ;
+            }
+         </script><br>
+         <h3>La propagation de l'évènement</h3> 
+         <p>En principe lorsque 2 éléments ont une relation père-fils, les évènements qui les sont attachés sont déclenchés simultanément(l'un après l'autre, le cas échéant) lors du déclenchement de l'évènement de l'élément parent. Par exemple, une div contenant un paragraphe, à chacun d'eux étant attaché un évènement, le déclenchement de l'évent du paragraphe se fera simultanément lors du déclenchement de celui de la div.  <br>On distingue 2 phase de propagation : <strong>la phase de capture</strong> qui correspond à la phase descendante(de la racine vers le fond) et la <strong>phase de bouillonnement</strong> ou phase ascendante(du fond vers la racine). Par défaut, les évents se déclenchent lors de la phase de bouillonnement, peu importe l'ordre de déclaration des évents. Pour changer cet ordre de propagation des évènements, on peut ajouter à la méthode addEventListener un 3e argument optionnel(booléen, true=phase de capture, false=phase de bouillonnement), ceci lors de la déclaration de chaque évent, en fonction de l'ordre que l'on souhaite avoir.  </p><br>
+         <h3>L'objet Event et ses méthodes </h3>
+         <p>Il nous informe sur le contexte de l'évènement déclenché ou ce qui va impacter l'environnement. On va pouvoir savoir par exple qui est le gestionnaire de quel évent (quel élément est le porteur de quel évent). Il possède moult propriétés, on va en étudier ici 3 : </p>
+         <h4><em>Target</em> et <em>currentTarget</em></h4>
+         <p>Le premier retourne le type de l'élément qui a déclenché l'évent et le deuxième le type de l'élément qui porte le gestionnaire de l'évent. Leur intérêt est bien perçu dans le cas des scripts complexes. </p>
+         <div id="divex">
+            <p id="parag1">Je suis le premier paragraphe de la div, cliquez moi !</p>
+            <h5>Pas d'évènement attaché ici </h5>
+            <p id="parag2">Je suis le deuxième paragraphe de la div, cliquez moi</p>
+            <script>
+                divexp = document.getElementById("divex") ;
+                paragr1 = document.getElementById("parag1") ;
+                paragr2 = document.getElementById("parag2") ;
+
+                divexp.addEventListener("mouseover",resultat11) ;
+                divexp.addEventListener("click",details1)
+                divexp.addEventListener("mouseout",reset1) ;
+                paragr1.addEventListener("click",resultat12) ;
+                paragr2.addEventListener("click",resultat13) ;
+
+                function resultat11(){this.style.color="rgb(185,45,55)"} ;
+                function resultat12(){this.innerHTML="Action paragraphe 1 !"} ;
+                function resultat13(){this.textContent="Action paragraphe 2 !"} ;
+                function reset1(){this.style.color="black"} ;
+                function details1(){alert("le type de l'élément déclencheur avec la propriété 'target' est :" +event.target+
+                                            "\nl'élément portant l'évent avec la propriété 'currentTarget' est : "+event.currentTarget+
+                                            "\nle type d'évènement déclenché avec la propriété 'type' est : "+event.type) ;
+                                        }
+            </script><br>
+         </div>
+         <h4>La propriété <em>type</em></h4>
+         <p>Elle retourne le type d'évent qui a été déclenché.</p><br>
+         <h3>Comment stopper la propagation d'un événement ?</h3>
+         <p>La méthode <strong><em>stopPropagation() </em></strong> permet à un évent d'arrêter sa propagation après avoir rencontré l'élément qui la porte. C'est par exemple dans les cas d'affichage d'une suite de plusieurs messages dans la boîte de dialogue. Cette méthode a besoin d'une référence pour fonctionner <em>(function arrproparg(e){e.stopPropagation()})</em>. Elle peut prendre d'autres instructions.</p>
+         <div id="divpar">
+             <p id="paragra">Je suis le seul paragraphe de cette div</p>
+             <h5>Ici pas d'évent </h5>
+
+             <script>
+                 divpara = document.getElementById("divpar") ;
+                 paragrap = document.getElementById("paragra") ;
+
+                 divpara.addEventListener("mouseover",resdiv,true) ;
+                 divpara.addEventListener("click",resultdiv,true) ;
+                 divpara.addEventListener("mouseout",resetdiv,true)
+                 paragrap.addEventListener("click",respar,true) ;
+
+                 function resdiv(){this.style.color="green", this.style.fontSize="26px"} ;
+                 function resultdiv(event){event.stopPropagation()} ;
+                 function resetdiv(){this.style.color="black"} ;
+                 function respar(){alert("En principe je ne m'affiche pas.")} ;
+             </script>
+         </div>
+         <p>Pour les évents dont il est possible de stopper l'action en soi, on va pouvoir le faire avec la méthode <em><strong>preventDefault() </strong></em>. Elle ne stoppe pas la propagation de l'évent, mais l'évent même sur un élément cible : (<em>function nonevent(d){d.preventDefault()}</em>).<br><br> Finalement, toutes ces méthodes peuvent être utiles lorsque par exemple on veut empêcher l'envoi d'un formulaire si l'user l'a mal rempli. </p>
+    </div>
+    
+    <footer>
+        <div id='pieds_de_page'>
+            <p>copyright</p>
+            <p>no passion, no success !</p>
+        </div>
+    </footer>
+</body>
+</html>

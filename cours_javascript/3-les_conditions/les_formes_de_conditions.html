@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Les formes de conditions </title>
+    <style>
+        *{
+                margin : 0px ;
+                padding : 0px ;
+            }
+            header{
+                height: 100px;
+                border: 1px solid rgba(123, 223, 77, 0.7);
+                padding: 100px 30% ;
+                margin-bottom: 28px;
+                background-image: url('../headandfooter/banner_linkedin.jpeg');
+                background-repeat: space;
+                background-size: contain;
+            }
+            header #titre{
+                word-spacing: 10px;
+                background-color: rgba(133, 223, 77, 0.6);
+                display: inline-block;
+                border-radius: 6px;
+                text-transform: uppercase;
+                text-align: center;
+                width: auto;
+            }
+            #contener{
+                width : 60%;
+                margin : auto ;
+                border-left: 1px solid;
+                padding-left: 30px;
+                background-color: rgba(28,196,5,0.1);
+                line-height: 30px;
+            }
+            #pieds_de_page{
+                height : 120px;
+                background-color : rgba(8,5,9,0.90);
+                color: silver;
+                align-content: center;
+                padding-top: 50px ;
+                margin-top: 28px;
+            }
+            #pieds_de_page p{
+                text-align: center;
+            }
+    </style>
+</head>
+<body>
+    <header>
+        <div id="titre">
+            <h2>Les formes de conditions </h2>
+        </div>
+    </header>
+    <div id='contener'>
+        <h4> Notions clés ou objectifs :</h4>
+         <ul>
+             <li> Comprendre la structure conditionnelle if... </li>
+             <li>Comprendre la structure conditionnelle if...else</li>
+             <li>Comprendre la structure conditionnelle if...else if...else</li>
+             <li>Les conditions imbriquées</li>
+         </ul><br><br>
+         <h3> La condition if...</h3>  
+         <p>Soit l'exemple suivant : On veut classer des personnes par catégories en fonction des leurs âges. On est : <br> mineur si âge < 21 <br> majeur si 21 < âge < 60 <br> et vieux si âge > 60 .</p>
+         
+         var age = 21
+         <p>Voir le résultat de l'exemple <span id="illustration1"><strong>ici</strong></span> .</p>
+
+         <script>
+             var age = 19 ;
+            var ill1=document.getElementById("illustration1") ;
+            ill1.addEventListener("click",resultat1) ;
+            function resultat1(){
+                if(age<21){
+                 alert("Pour âge1 = 20 : Vous êtes mineur") ;
+             }
+            }
+         </script>
+         <p>Dans cette structure de condition, il y a retour d'information uniquement si la condition est validée. </p>
+         <h3>La condition if...else</h3>
+         <p>En reprenant l'exemple précédent, on considère qu'on veule absolument avoir un retour d'information si l'individu est uniquement mineur ou pas. Voir le resultat de l'exemple <span id="illustration2"><strong>ici</strong></span>. </p>
+         <script>
+             var age2 = 23 ;
+            var ill2=document.getElementById("illustration2") ;
+            ill2.addEventListener("click",resultat2) ;
+            function resultat2(){
+                if(age2<21){
+                 alert("Pour âge1 < 21 : Vous êtes mineur") ;
+             }
+             else{
+                 alert("Pour âge2 = 23 : vous n'êtes pas mineur") ;
+             }
+            }
+         </script>
+         <h3>La condition if...elseif... else</h3>
+         <p>En reprenant l'exemple précédent, on suppose qu'on veule attribuer une catégorie selon que l'âge se trouve dans une classe précise. Voir le résultat de l'exemple <span id="illustration3"><strong>ici</strong></span>.</p>
+         <script>
+             var age = 29 ;
+            ill3 = document.getElementById("illustration3") ;
+            ill3.addEventListener("click", resultat3) ;
+
+            function resultat3(){
+                if(age > 21){
+                 if(age < 30){
+                     alert ("vous êtes dans la catégorie A, votre âge est compris entre 21 et 30") ;
+                 }
+                 else if(age == 30 ){
+                     alert ("vous avez 30 ans, vous êtes dans la catégorie B.") ;
+                 }
+                 else if(age < 40){
+                     alert ("vous appartenez à la catégorie C, comme vous avez moins de 40 ans.") ;
+                 }
+                 else if(age == 40){
+                     alert ("vous appartenez à la catégorie D, puisque vous avez 40 ans.") ;
+                 }
+                 else{
+                     alert ("aucune catégorie ne correspond à  votre âge.") ;
+                 }
+             }
+             else if(age == 21){
+                 alert ("vous êtes à peine majeur ! vous appartenez à la catégorie A'") ;
+             }
+             else{
+                 alert ("Vous êtes encore mineur, vous êtes donc en catégorie E.") ;
+             }
+            }
+         </script>
+         <h3>le typeof() dans les conditions </h3>
+         <p>On peut utiliser le typeof afin de filtrer les données entrées par l'utilisateur. Si le type de donnée entrée ne correspond pas au type attendu, le traitement n'aura pas lieu. Voir l'illustration <span id="illustration4"><strong>ici</strong></span>. </p>
+         <script>
+             var age = "deux" ;
+
+            ill4 = document.getElementById("illustration4") ;
+            ill4.addEventListener("click",resultat4) ;
+
+            function resultat4(){
+            if(typeof(age) == "number"== true){
+                alert("le type de la valeur entrée est 'nombre'. Cela correspond au type attendu.") ;
+                if(age > 21){
+                    if(age < 30){
+                        alert ("vous êtes dans la catégorie A, votre âge est compris entre 21 et 30") ;
+                    }
+                    else if(age == 30 ){
+                        alert ("vous avez 30 ans, vous êtes dans la catégorie B.") ;
+                    }
+                    else if(age < 40){
+                        alert ("vous appartenez à la catégorie C, comme vous avez moins de 40 ans.") ;
+                    }
+                    else if(age == 40){
+                        alert ("vous appartenez à la catégorie D, puisque vous avez 40 ans.") ;
+                    }
+                    else{
+                        alert ("aucune catégorie ne correspond à  votre âge.") ;
+                    }
+                }
+                else if(age == 21){
+                    alert ("vous êtes à peine majeur ! vous appartenez à la catégorie A'") ;
+                }
+                else{
+                    alert ("Vous êtes encore mineur, vous êtes donc en catégorie E.") ;
+                }
+             }
+            else{
+                alert("le type de la valeur ne correspond pas.") ;
+            }
+            }
+         </script>
+    </div>
+    
+    <footer>
+        <div id='pieds_de_page'>
+            <p>copyright</p>
+            <p>no passion, no success !</p>
+        </div>
+    </footer>
+</body>
+</html>

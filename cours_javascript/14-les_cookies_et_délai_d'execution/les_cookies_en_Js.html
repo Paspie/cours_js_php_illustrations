@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>les cookies en Javascript </title>
+    <style>
+        *{
+                margin : 0px ;
+                padding : 0px ;
+            }
+            header{
+                height: 100px;
+                border: 1px solid rgba(123, 223, 77, 0.7);
+                padding: 100px 30% ;
+                margin-bottom: 28px;
+                background-image: url('../headandfooter/banner_linkedin.jpeg');
+                background-repeat: space;
+                background-size: contain;
+            }
+            header #titre{
+                word-spacing: 10px;
+                background-color: rgba(133, 223, 77, 0.6);
+                display: inline-block;
+                border-radius: 6px;
+                text-transform: uppercase;
+                text-align: center;
+                width: auto;
+            }
+            #contener{
+                width : 60%;
+                margin : auto ;
+                border-left: 1px solid;
+                padding-left: 30px;
+                background-color: rgba(28,196,5,0.1);
+                line-height: 30px;
+            }
+            #pieds_de_page{
+                height : 120px;
+                background-color : rgba(8,5,9,0.90);
+                color: silver;
+                align-content: center;
+                padding-top: 50px ;
+                margin-top: 28px;
+            }
+            #pieds_de_page p{
+                text-align: center;
+            }
+    </style>
+</head>
+<body>
+    <header>
+        <div id="titre">
+            <h2> Les cookies en Javascript </h2>
+        </div>
+    </header>
+    <div id='contener'>
+        <h4> Notions clés ou objectifs :</h4>
+         <ul>
+             <li>créer un cookies  </li>
+             <li>récupérer et lire le contenu d'un cookies</li>
+             <li>modifier et supprimer un cookies</li>
+         </ul><br><br>
+         <p> Un cookie créé comporte au moins un nom et une valeur. Un cookie va contenir une seule information (qui sera réutilisée) de l'user et sera stocké dans l'ordi client. Il peut être dangereux dans le cas où il se fait intercepté avec une information personnelle sensible.</p>
+         <h3>1- créer un cookies </h3>
+         <p id="cook"></p>
+         <script>
+             document.cookie = "prenomcookie1=pierre;expires=4/30/2021 11:10:00 UTC;path=/" ;
+             document.cookie = "prenomcookie2=pascal;expires=4/30/2021 11:15:00 UTC;path=/" ;
+
+             var coo = document.cookie ;
+             document.getElementById("cook").innerHTML=coo ;
+         </script>   
+         <h3>2- modifier le cookie</h3>
+         <p>Pour ce faire, il suffit de réécrire le cookie en question en modifiant les informations souhaitées. </p>
+         <p id="cook2"></p>
+         <script>
+             document.cookie = "prenomcookie1modifié=pierre;expires=4/30/2021 17:10:00 UTC;path=/" ;
+             document.cookie = "prenomcookie2=pascal;expires=4/30/2021 11:15:00 UTC;path=/" ;
+
+             var coo = document.cookie ;
+             document.getElementById("cook2").innerHTML=coo ;
+         </script>
+         <h3>3- supprimer le cookie </h3>
+         <p>Il suffit de le réécrire avec une date passée. </p>
+         <p id="cook3"></p>
+         <script>
+             document.cookie = "prenomcookie1supprimé=pierre;expires=4/30/2020 17:10:00 UTC;path=/" ;
+             document.cookie = "prenomcookie2supprimé=pascal;expires=4/30/2020 11:15:00 UTC;path=/" ;
+
+             var coo = document.cookie ;
+             document.getElementById("cook3").innerHTML=coo ;
+         </script>
+         <h3>4- fonction unique pour manipuler les cookies</h3>
+         <p>On peut construire une fonction spéciale permettant de créer, lire, modifier, supprimer les cookies. Ceci est bien indiqué dans les grands projets nécessitant beaucoup de cookies. </p>
+         <p id="cook4"></p>
+         <p id="cook5"></p>
+         <script>
+             function creerCookie(nom,valeur,jour){
+                 //si les jours ont bien été définis,
+                 if(jour){
+                     //on crée un objet date stockant la date actuelle
+                     var date=new Date() ;
+                     //on définit la date d'expiration du cookie
+                     date.setTime(date.getTime()+(jour*24*60*50*1000)) ;
+                     //on met la date au bon format pour cookie
+                     var exp = "; expires = "+date.toGMTString() ;
+                 }
+                 //si les jours n'ont pas été définis, on a pas besoin de calcul
+                 else{
+                     var exp = "" ;
+                 }
+                 document.cookie = nom+"="+valeur+exp+ "; path=/" ;
+             }
+
+             function lireCookies(nom){
+                 //on récupère le nom du cookie et le signe "="
+                 var nomEtEgal = nom+"=" ;
+                 //on récupère tous les cookies dans un tableau
+                 var cTableau = document.cookie.split(";") ;
+                 //on parcourt le tableau créé
+                    for(var i=0; i<cTableau.length; i++){
+                        //on récupère tous les noms et valeurs des cookies
+                        var c = cTableau[i] ;
+                        //on supprime les espaces potentiels dans c jusqu'à tomber sur le nom d'un cookie
+                        while(c.charAt(0)==" "){
+                            c=c.substring(1, c.length) ;
+                        }
+                        if(c.indexOf(nomEtEgal)==0){
+                            return c.substring(nomEtEgal.length,c.length) ;
+                        }
+                    }
+                    //si nom du cookie non trouvé, il n'existe pas
+                        return null
+                }
+
+            function supprimerCookie(nom){
+                //on donne le nom du cookie à supprimer, puis on utilise creerCookies() pour indiquer une date d'expiration passée
+                        creerCookie(nom,"",-1) ;
+                    }
+
+                    //on crée deux cookies
+                    creerCookie("cookie1","Je suis le premier cookie",7) ;
+                    creerCookie("cookie2","Je suis le deuxième cookie",7) ;
+
+                    //lorsqu'on va vouloir supprimer le premier cookie :
+                   // supprimerCookie(cookie1) ; 
+                   
+                    //on affiche le premier cookie
+                    var affiche = document.getElementById("cook4") ;
+                    affiche.innerHTML = "valeur : "+lireCookies("cookie1") ;
+
+                    //on affiche le deuxième cookie
+                    var affiche2 = document.getElementById("cook5") ;
+                    affiche2.innerHTML = "valeur : "+lireCookies("cookie2") ;
+
+         </script>
+    </div>
+    
+    <footer>
+        <div id='pieds_de_page'>
+            <p>copyright</p>
+            <p>no passion, no success !</p>
+        </div>
+    </footer>
+</body>
+</html>

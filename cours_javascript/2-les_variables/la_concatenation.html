@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La concaténation </title>
+    <style>
+        *{
+                margin : 0px ;
+                padding : 0px ;
+            }
+            header{
+                height: 100px;
+                border: 1px solid rgba(123, 223, 77, 0.7);
+                padding: 100px 30% ;
+                margin-bottom: 28px;
+                background-image: url('../headandfooter/banner_linkedin.jpeg');
+                background-repeat: space;
+                background-size: contain;
+            }
+            header #titre{
+                word-spacing: 10px;
+                background-color: rgba(133, 223, 77, 0.6);
+                display: inline-block;
+                border-radius: 6px;
+                text-transform: uppercase;
+                text-align: center;
+                width: auto;
+            }
+            #contener{
+                width : 60%;
+                margin : auto ;
+                border-left: 1px solid;
+                padding-left: 30px;
+                background-color: rgba(28,196,5,0.1);
+                line-height: 30px;
+            }
+            #pieds_de_page{
+                height : 120px;
+                background-color : rgba(8,5,9,0.90);
+                color: silver;
+                align-content: center;
+                padding-top: 50px ;
+                margin-top: 28px;
+            }
+            #pieds_de_page p{
+                text-align: center;
+            }
+    </style>
+</head>
+<body>
+    <header>
+        <div id="titre">
+            <h2> La concaténation </h2>
+        </div>
+    </header>
+    <div id='contener'>
+        <h4> Notions clés ou objectifs :</h4>
+         <ul>
+             <li> Comprendre la concaténation </li>
+             <li>Pouvoir concatener avec l'opérateur "+" </li>
+             <li>concatener un chiffre ou une chaîne de caractères</li>
+         </ul><br><br>
+         <h3> Application :</h3> 
+         <p>Concatener signifie mettre bout à bout 2 chaînes de caractères afin d'en obtenir une 3ème. <br>
+            Exemple : </p>
+            var prenom1 = "Pascal" , espace=" " , prenom2 = "Pierre" ; <br>
+            var moi = prenom1+espace+prenom2 ;<br>
+            <p>Voir le résultat de l'exemple <span id="illustration1"><strong>ici </strong></span>. </p>
+         <script>
+             var prenom1 = "Pascal" , espace=" " , prenom2 = "Pierre" ;
+             var moi = prenom1+espace+prenom2 ;
+
+             var ill1 = document.getElementById("illustration1");
+             ill1.addEventListener("click",concat)
+
+             function concat(){
+                alert("la variable 'moi' contient : "+moi) ;
+             }
+         </script>  <br>
+         <h3>concaténation des chaînes de caractères et des nombres </h3>
+         <p>Illustration : </p>
+             var w=5+3+2 ;<br>
+             var x=5+3+"2" ;<br>
+             var y="5"+3+2 ;<br>
+             var z=5+"trois"+2 ;<br>
+            <p>Voir le résultat de l'exemple <span id="illustration2"><strong>ici</strong></span>.</p>
+         <script>
+             var w=5+3+2 ;
+             var x=5+3+"2" ;
+             var y="5"+3+2 ;
+             var z=5+"trois"+2 ;
+
+             ill2 = document.getElementById("illustration2") ;
+             ill2.addEventListener("click",concat2)
+
+             function concat2(){
+                alert("la variable 'w' contient :" +w+
+             "\nla variable 'x' contient : " +x+
+             "\nla variable 'y' contient : " +y+
+             "\nla variable 'z' contient : " +z) ;
+             }
+         </script>
+    </div>
+    
+    <footer>
+        <div id='pieds_de_page'>
+            <p>copyright</p>
+            <p>no passion, no success !</p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Les boucles </title>
+    <style>
+        *{
+                margin : 0px ;
+                padding : 0px ;
+            }
+            header{
+                height: 100px;
+                border: 1px solid rgba(123, 223, 77, 0.7);
+                padding: 100px 30% ;
+                margin-bottom: 28px;
+                background-image: url('../headandfooter/banner_linkedin.jpeg');
+                background-repeat: space;
+                background-size: contain;
+            }
+            header #titre{
+                word-spacing: 10px;
+                background-color: rgba(133, 223, 77, 0.6);
+                display: inline-block;
+                border-radius: 6px;
+                text-transform: uppercase;
+                text-align: center;
+                width: auto;
+            }
+            #contener{
+                width : 60%;
+                margin : auto ;
+                border-left: 1px solid;
+                padding-left: 30px;
+                background-color: rgba(28,196,5,0.1);
+                line-height: 30px;
+            }
+            #pieds_de_page{
+                height : 120px;
+                background-color : rgba(8,5,9,0.90);
+                color: silver;
+                align-content: center;
+                padding-top: 50px ;
+                margin-top: 28px;
+            }
+            #pieds_de_page p{
+                text-align: center;
+            }
+    </style>
+</head>
+<body>
+    <header>
+        <div id="titre">
+            <h2> Les boucles </h2>
+        </div>
+    </header>
+    <div id='contener'>
+        <h4> Notions clés ou objectifs :</h4>
+         <ul>
+             <li>Les formes while..., do...while, for...  </li>
+             <li>Utilisation des boucles</li>
+             <li>L'incrémentation et la décrémentation</li>
+         </ul><br><br>
+         <p> Les boucles prennent souvent la forme d'une inégalité sur une variable. Par exemple exécuter un bout de code tant qu'une variable contient une valeur <, >, <=, >= à un nombre. Il sera donc question de faire varier la valeur contenue dans la variable à l'intérieur de la boucle, ceci à l'aide de l'incrémentation ou de la décrémetation. <br> Voir le resultat de l'exemple <span id="illustration1"><strong>ici</strong></span>. </p>
+         <script>
+             var note = 0 ;
+
+             ill1 = document.getElementById("illustration1") ;
+             ill1.addEventListener("click",resultat1) ;
+
+             function resultat1(){
+                 while(note <= 10){
+                     alert("vous êtes en dessous de 10.\nVous êtes exactement à " +note) ;
+                     note++ ;
+                 }
+             }
+         </script>   
+         <p>L'incrémentation ou la décrémentation peut se faire avant ou après la variable. Lorsque la variable est suivie par les signes (++ ou --) l'affectation est prioritaire sur l'incrémentation ou la décrémentation, donc la variable est d'abord affichée avant d'être augmentée ou diminuée. Si les signes sont plutôt suivis par la variable, l'augmentation ou la diminution est faite avant l'affichage de la variable. 
+             <br>var A = 0 , B = 0 , C = 10 , D = 10 ; <br>
+
+             var W = A++ ;<br>
+             var X = ++B ;<br>
+             var Y = C-- ;<br>
+             var Z = --D ;<br>
+              <br>Voir le resultat de l'exemple <span id="illustration2"><strong>ici</strong></span>. </p>
+         <script>
+
+             ill2 = document.getElementById("illustration2") ;
+             ill2.addEventListener("click", resultat2) ;
+
+             function resultat2(){ 
+
+                var A = 0 , B = 0 , C = 10 , D = 10 ;
+
+                var W = A++ ;
+                var X = ++B ;
+                var Y = C-- ;
+                var Z = --D ;
+
+                alert("W contient (la valeur est d'abord affichée avant l'incrémentation) : "+W+
+                "\n\nA (la dernière valeur prise par la variable A qui est 'A++') : " +A+
+                "\n\nX (l'incrémentation est d'abord faite avant l'affichage ): " +X+
+                "\n\nB (la dernière valeur prise par la variable B qui est '++B') : " +B+
+                "\n\nY (la valeur est d'abord affichée avant la décrémentation) : " +Y+
+                "\n\nC (la dernière valeur prise par la variable C qui est 'C--') : " +C+
+                "\n\nZ (l'incrémentation est d'abord faite avant l'affichage ) : " +Z+
+                "\n\nD (la dernière valeur prise par la variable D qui est '--C') : " +D) ;
+             } 
+         </script>
+         <h3>La boucle do...while</h3>
+         <p>Ici la vérification de fait la vérification de la condition commence après le premier passage, contrairement à la structure while... ou la vérification a lieu plutôt avant le premier passage. Voir le resultat de l'illustration <span id="illustration3"><strong>ici</strong></span>. </p>
+         <script>
+             var x = 0 ;
+
+             ill3 = document.getElementById("illustration3") ;
+             ill3.addEventListener("click", resultat3) ;
+
+             function resultat3(){
+                 do{
+                     alert ("la variable x contient : " +x) ;
+                     x++ ;
+                 }
+                 while(x <= 6) ;
+             }
+         </script>
+         <h3>La boucle for...</h3>
+         <p>Cette structure permet de repéter une serie d'instructions à partir d'une valeur donnée jusqu'à une valeur seuille. Voir l'illustration <span id="illustration4"><strong>ici</strong></span>. </p>
+         <script>
+             var y = " " ;
+
+             ill4 = document.getElementById("illustration4") ;
+             ill4.addEventListener("click", resultat4) ;
+
+             function resultat4(){
+                 for(y=0; y<=4; y++){
+                     alert ("la variable x contient : " +y) ;
+                 }
+             }
+         </script>
+    </div>
+    
+    <footer>
+        <div id='pieds_de_page'>
+            <p>copyright</p>
+            <p>no passion, no success !</p>
+        </div>
+    </footer>
+</body>
+</html>

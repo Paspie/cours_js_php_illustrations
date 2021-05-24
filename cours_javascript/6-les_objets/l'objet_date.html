@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>l'objet date et ses méthodes </title>
+    <style>
+        *{
+                margin : 0px ;
+                padding : 0px ;
+            }
+            header{
+                height: 100px;
+                border: 1px solid rgba(123, 223, 77, 0.7);
+                padding: 100px 30% ;
+                margin-bottom: 28px;
+                background-image: url('../headandfooter/banner_linkedin.jpeg');
+                background-repeat: space;
+                background-size: contain;
+            }
+            header #titre{
+                word-spacing: 10px;
+                background-color: rgba(133, 223, 77, 0.6);
+                display: inline-block;
+                border-radius: 6px;
+                text-transform: uppercase;
+                text-align: center;
+                width: auto;
+            }
+            #contener{
+                width : 60%;
+                margin : auto ;
+                border-left: 1px solid;
+                padding-left: 30px;
+                background-color: rgba(28,196,5,0.1);
+                line-height: 30px;
+            }
+            #pieds_de_page{
+                height : 120px;
+                background-color : rgba(8,5,9,0.90);
+                color: silver;
+                align-content: center;
+                padding-top: 50px ;
+                margin-top: 28px;
+            }
+            #pieds_de_page p{
+                text-align: center;
+            }
+    </style>
+</head>
+<body>
+    <header>
+        <div id="titre">
+            <h2> l'objet date et ses méthodes  </h2>
+        </div>
+    </header>
+    <div id='contener'>
+        <h4> Notions clés ou objectifs :</h4>
+         <ul>
+             <li>créer un objet de type date </li>
+             <li>récupérer la date actuelle en Js</li>
+             <li>maîtriser les formats de dates valides</li>
+             <li>maîtriser les méthodes de l'objet date</li>
+         </ul><br><br>
+         <p> L'objet date est un objet natif de Js. Il peut être écrit soit par un string, soit sous forme de time-stamp Unix, et est décompté en milisecondes. <br>Pour récupérer la date sous forme littérale : <em>var date = Date() </em> et sous forme de milisecondes : <em>var date = Date.now() </em>. <span id="illustration1"><strong>Illustration</strong></span> </p> 
+         <script>
+             ill1 = document.getElementById("illustration1") ;
+             ill1.addEventListener("click", resultat1) ;
+
+             function resultat1(){
+                 var date1 = Date() ;
+                 var date2 = Date.now() ;
+
+                 alert("ceci est la date sous forme littérale : "+date1+"\nCeci est la date en ms : "+date2) ;
+             }
+         </script>
+         <p>On peut être amené à créer ou à spécifier une date, on utilisera pour cela le constructeur date : </p>
+         <ul>
+             <li>la date littérale : <em> date() </em> </li>
+             <li>spécifier une date avec un format valide : <em>var x = new date("April 16, 2021  11:37:00")  </em> </li>
+             <li>En précisant un nombre en argument : <em>var x = new date(0) </em> (pour le time-stamp, temps écoulé depuis le 1/1/1970 en secondes) et <em>var x = new date(604800000) (time-stamp + 1 semaine) </em> </li>
+             <li>En précisant 7 nombres, les 3 premiers étant obligatoires : <em>var x = new date(année,mois,jour,heure,minute,seconde,ms) </em> exemple : <em>var x = new date(2021,4,16,11,48,39,80) </em> </li>
+         </ul>
+         <h3>Les formats de date</h3>
+         <ul>
+             <li>new date("2021-04-16") </li>
+             <li>new date("2021-04-16 T11:52:00") </li>
+             <li>new date("2021/04/16") </li>
+             <li>new date("January 25 2021 11:54:10") </li>
+             <li>new date("Fri Jan 16 2021  11:55:45 GMT+02:00") </li>
+         </ul>
+         <h3>Les méthodes de l'objet date() </h3>
+         <h4>1. Méthodes de type get-eur </h4>
+         <p>Elles sont utilisées pour récupérer la date. </p>
+         <ul>
+             <li>var d = new date() : on crée d'abord la date, puis on extrait les détails par les méthodes </li>
+             <li>var dms = d.getTime() : on récupère la date en ms </li>
+             <li>var dy = d.getFullYear() : on récupère l'année </li>
+             <li>var dmo = d.getMonth()+1 : on récupère le mois. (+1 car les mois vont de 0 à 11) </li>
+             <li>var ddate = d.getDate() :  </li>
+             <li>var dday = d.getDay() :  </li>
+             <li>var dh = d.getHours() :  </li>
+             <li>var dmi = d.getMinutes() :  </li>
+             <li>var ds = d.getSecondes() :  </li>
+             <li>var dMs = d.getMillisecondes() :  </li>
+         </ul>
+         <h4>2. Méthodes de type set-eur</h4>
+         <p>Elles sont utilisées pour définir une date. On crée donc d'abord l'objet date puis on lui attribue des propriétés </p>
+         <ul>
+             <li>var d = new Date() </li>
+             <li>d.setFullYear(2021,3,16) (pour le 16 Avril 2021) </li>
+             <li> d.setHours(12) </li>
+             <li> d.setMinutes(22) </li>
+             <li> d.setSeconds(42) </li>
+         </ul>
+         <p>Pour formater une date autrement qu'en anglais, il suffit d'appliquer ces ppt/mth et à les alerter selon l'ordre souhaité. </p>
+    </div>
+    
+    <footer>
+        <div id='pieds_de_page'>
+            <p>copyright</p>
+            <p>no passion, no success !</p>
+        </div>
+    </footer>
+</body>
+</html>

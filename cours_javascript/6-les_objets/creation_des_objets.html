@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Création des objets </title>
+    <style>
+        *{
+                margin : 0px ;
+                padding : 0px ;
+            }
+            header{
+                 height: 100px;
+                border: 1px solid rgba(123, 223, 77, 0.7);
+                padding: 100px 30% ;
+                margin-bottom: 28px;
+                background-image: url('../headandfooter/banner_linkedin.jpeg');
+                background-repeat: space;
+                background-size: contain;
+            }
+            header #titre{
+                word-spacing: 10px;
+                background-color: rgba(133, 223, 77, 0.6);
+                display: inline-block;
+                border-radius: 6px;
+                text-transform: uppercase;
+                text-align: center;
+                width: auto;
+            }
+            #contener{
+                width : 60%;
+                margin : auto ;
+                border-left: 1px solid;
+                padding-left: 30px;
+                background-color: rgba(28,196,5,0.1);
+                line-height: 30px;
+            }
+            #pieds_de_page{
+                height : 120px;
+                background-color : rgba(8,5,9,0.90);
+                color: silver;
+                align-content: center;
+                padding-top: 50px ;
+                margin-top: 28px;
+            }
+            #pieds_de_page p{
+                text-align: center;
+            }
+    </style>
+</head>
+<body>
+    <header>
+        <div id="titre">
+            <h2> Création des objets </h2>
+        </div>
+    </header>
+    <div id='contener'>
+        <h4> Notions clés ou objectifs :</h4>
+         <ul>
+             <li> les différentes façons de créer des objets en Js </li>
+             <li>créer un objet avec le mot clé "new" </li>
+             <li>créer un objet littéral</li>
+             <li>créer un objet à partir d'un constructeur </li>
+         </ul><br><br>
+         <h3>La méthode "new" </h3>
+         <p>Il est généralement déconseillé d'utiliser cette méthode pour des raisons de performance. Ici on construit l'objet à l'aide du mot clé "new" suivi du nom de l'élément dont l'objet découle, et finalement on peut ajouter des propriétés et méthodes à ce nouvel objet. <span id="illustration1"><strong>Illustration</strong></span>. </p>
+         <script>
+             ill1 = document.getElementById("illustration1") ;
+             ill1.addEventListener("click",resultat1) ;
+
+             function resultat1(){
+                 var obj_methnew = new Object() ;
+                obj_methnew.ppte1 = "Pierre" ;
+                obj_methnew.ppte2 = "Pascal" ;
+                obj_methnew.ppte3 = 26 ;
+
+                alert ("Ceci sont les valeurs contenues dans les propriétés du nouvel objet obj_methnew"+"\n" +obj_methnew.ppte1+"\n"+obj_methnew.ppte2+"\n"+obj_methnew.ppte3) ;
+             }
+         </script>
+         <h3>La méthode littérale</h3>
+         <p>Cette méthode est simple et recommandée. Ici on peut aussi créer un objet vide avec les <em>{ } </em> et ensuite rajouter de propriétés et méthodes par la suite en écrivant <em>nomdelobjet.nompropriété/méthode</em> et en affectant une valeur à la propriété/méthode. Lorsque les propriétés/méthodes sont crées après la création de l'objet, leurs valeurs sont affectées avec le signe des <strong><em>:</em></strong>, si par contre elles crées à l'intérieure de l'objet les valeurs sont affectées avec le signe <strong><em> =</em></strong>. Voir <span id="illustration2"><strong>Illustration1</strong></span> et <span id="illustration3"><strong>Illustration2</strong></span>. </p>
+         <script>
+             ill2 = document.getElementById("illustration2") ;
+             ill2.addEventListener("click",resultat2) ;
+
+             function resultat2(){ 
+                 var moi = {
+                     prenom : "Pierre" ,
+                     nom : "Bineng" ,
+                     age : 26 ,
+
+                     identite: function(){
+                         return this.prenom+" "+this.nom+" "+this.age+" ans\nCeci est un objet dont les pp/mth sont crées à l'intérieur de l'objet" ;
+                     }
+                 };
+
+                 alert (moi.identite()) ;  
+             } 
+         </script> 
+         <script>
+             ill3 = document.getElementById("illustration3") ;
+             ill3.addEventListener("click",resultat3) ;
+
+             function resultat3(){
+                var toi = {} ;
+             toi.prenom = "Orshel" ;
+             toi.nom = "Bineng" ;
+             toi.age = 14 ;
+
+             toi.identite = function(){
+                    return this.prenom+" "+this.nom+" "+this.age+" ans\nCeci est un objet dont les pp/mth sont crées à l'extérieur de l'objet"  ;
+                } 
+                alert (toi.identite()) ;
+             }
+         </script>
+         <h3>Création d'un objet à partir d'un constructeur</h3>
+         <p>Il s'agit ici de créer tout d'abord un constructeur avec des propriétés/méthodes que portera chacun des objets créé à partir de ce dernier. Ce procédé convient bien au gros, on pourra utiliser en fonction des types d'objets qu'on souhaite créer des types de constructeurs. Par exemple pour créer un objet de type <em>string</em> on utilisera le <em>constructeur string</em>. Les autres types de constructeurs sont par exemple : les <em>constructeurs objet, number, boolean, array, regex, function, date</em>. Le constructeur objet sert à créer des objets. A noter aussi qu'un constructeur est avant tout une fonction. <span id="illustration4"><strong>Illustration</strong></span>. </p>
+         <script>
+             ill4 = document.getElementById("illustration4") ;
+             ill4.addEventListener("click",resultat4) ;
+
+             function resultat4(){
+                function identite(prenom, nom, age){
+                    this.leprenom = prenom ;
+                    this.lenom = nom ;
+                    this.lage = age ; 
+                }
+                var moi = new identite("Pierre", "Bineng", 26) ;
+                var toi = new identite("Orshel", "Bineng", 14) ;
+
+                alert("premier objet créé à partir du constructeur : "+moi.leprenom+" "+moi.lenom+" "+moi.lage+
+                "\nDeuxième objet : "+toi.leprenom+" "+toi.lenom+" "+toi.lage) ;
+             }
+
+         </script>
+         <p>
+             <strong>N.B</strong> : S'il y a liaison entre 2 objets créés évidemment à partir d'un même constructeur, la modification d'une référence entraîne la modification automatique de cette référence dans l'autre objet. Par exemple, on créé un nouveau à partir du même constructeur dans l'illustration ci-dessus, et on attribue à ce nouveau objet les propriétés/méthodes d'un des objets existant, ensuite on souhaite modifier une pté/mth précise dans le nouveau objet, cela entraînera automatique la modification de cette ppté/mth dans le premier objet. Ce qui n'est pas le cas pour les variables primitives. 
+         </p>
+
+
+    </div>
+    
+    <footer>
+        <div id='pieds_de_page'>
+            <p>copyright</p>
+            <p>no passion, no success !</p>
+        </div>
+    </footer>
+</body>
+</html>

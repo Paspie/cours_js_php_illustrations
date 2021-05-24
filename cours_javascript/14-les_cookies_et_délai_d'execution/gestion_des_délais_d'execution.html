@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion des délais d'exécution  </title>
+    <style>
+        *{
+                margin : 0px ;
+                padding : 0px ;
+            }
+            header{
+                height: 100px;
+                border: 1px solid rgba(123, 223, 77, 0.7);
+                padding: 100px 30% ;
+                margin-bottom: 28px;
+                background-image: url('../headandfooter/banner_linkedin.jpeg');
+                background-repeat: space;
+                background-size: contain;
+            }
+            header #titre{
+                word-spacing: 10px;
+                background-color: rgba(133, 223, 77, 0.6);
+                display: inline-block;
+                border-radius: 6px;
+                text-transform: uppercase;
+                text-align: center;
+                width: auto;
+            }
+            #contener{
+                width : 60%;
+                margin : auto ;
+                border-left: 1px solid;
+                padding-left: 30px;
+                background-color: rgba(28,196,5,0.1);
+                line-height: 30px;
+            }
+            #pieds_de_page{
+                height : 120px;
+                background-color : rgba(8,5,9,0.90);
+                color: silver;
+                align-content: center;
+                padding-top: 50px ;
+                margin-top: 28px;
+            }
+            #pieds_de_page p{
+                text-align: center;
+            }
+    </style>
+</head>
+<body>
+    <header>
+        <div id="titre">
+            <h2> Gestion des délais d'exécution </h2>
+        </div>
+    </header>
+    <div id='contener'>
+        <h4> Notions clés ou objectifs :</h4>
+         <ul>
+             <li> les méthodes setInterval() clearInterval() et setTimeOut()  </li>
+
+         </ul><br><br>
+         <h3>1- la méthode window setInterval() </h3>
+         <p>Elle permet d'exécuter un script en boucle en précisant un interval de temps entre chaque repétition. Elle prend en arguments le bloc de code à exécuter et l'interval de temps en milisecondes.<br><strong>Illustration : créer un timer qui se met à jour toutes les secondes.</strong> </p>
+         <p>Timer : <strong><span id="temps"></span></strong></p>
+         <!--<script>
+             var temps = document.getElementById("temps") ;
+             var tempsreel = setInterval(horloge,1000) ;
+
+             function horloge(){
+                 var d = new Date() ;
+                 temps.innerHTML = d.toLocaleTimeString() ;
+             }
+         </script> --> 
+         <h3>2- clearInterval() </h3>
+         <p>Elle permet de stropper l'exécution de la fonction setInterval(), en accédant à la variable ou cette dernière a été définie. <br><strong>Illustration : créer un bouton pour la possibilité de stopper le temps.</strong> </p>
+         <p>Timer : <strong><span id="temps2"></span></strong>    
+         <br>arrêter le timer : <button id="arret">arrêter le timer </button></p>
+         <script>
+             var temps = document.getElementById("temps2") ;
+             var stopp = document.getElementById("arret") ;
+             var tempsReel = setInterval(horloge,1000) ;
+
+             function horloge(){
+                 var d = new Date() ;
+                 temps.innerHTML = d.toLocaleTimeString() ;
+             }
+             stopp.addEventListener("click",stopper) ;
+             function stopper(){
+                clearInterval(tempsReel) ;
+             }
+         </script>
+         <h3>3- le timeOut() </h3>  
+         <p>Elle permet de programmer l'exécution d'un code et prend comme arguments la fonction à exécuter et le nombre de milisecondes après lequel la fonction sera exécutée. </p>
+         <button id="btn">Veuillez cliquer ici</button>
+         <script>
+             var conteneur = document.body ;
+             var btn = document.getElementById("btn") ;
+
+             btn.addEventListener("click",couleur) ;
+             function couleur(){
+                setTimeout((function(){conteneur.style.backgroundColor ="#A85"}),200) ;
+                setTimeout((function(){conteneur.style.backgroundColor ="#5B5"}),401) ;
+                setTimeout((function(){conteneur.style.backgroundColor ="#58C"}),505) ;
+                setTimeout((function(){conteneur.style.backgroundColor ="#D85"}),603) ;
+                setTimeout((function(){conteneur.style.backgroundColor ="#5E5"}),707) ;
+                setTimeout((function(){conteneur.style.backgroundColor ="#58F"}),806) ; 
+                setTimeout((function(){conteneur.style.backgroundColor ="#185"}),911) ;
+                setTimeout((function(){conteneur.style.backgroundColor ="#525"}),1120) ;
+                setTimeout((function(){conteneur.style.backgroundColor ="#583"}),1125) ;
+                setTimeout((function(){conteneur.style.backgroundColor ="#485"}),1134) ;
+                setTimeout((function(){conteneur.style.backgroundColor ="#555"}),1122) ; 
+             }
+         </script>
+         <p>On utiliser le clearTimeout() pour arrêter le timeout, ceci n'est pas trop usuel. </p>
+    </div>
+    
+    <footer>
+        <div id='pieds_de_page'>
+            <p>copyright</p>
+            <p>no passion, no success !</p>
+        </div>
+    </footer>
+</body>
+</html>

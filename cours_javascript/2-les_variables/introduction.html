@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction aux variables en Js</title>
+    <style>
+        *{
+                margin : 0px ;
+                padding : 0px ;
+            }
+            header{
+                height: 100px;
+                border: 1px solid rgba(123, 223, 77, 0.7);
+                padding: 100px 30% ;
+                margin-bottom: 28px;
+                background-image: url('../headandfooter/banner_linkedin.jpeg');
+                background-repeat: space;
+                background-size: contain;
+            }
+            header #titre{
+                word-spacing: 10px;
+                background-color: rgba(133, 223, 77, 0.6);
+                display: inline-block;
+                border-radius: 6px;
+                text-transform: uppercase;
+                text-align: center;
+                width: auto;
+            }
+            #contener{
+                width : 60%;
+                margin : auto ;
+                border-left: 1px solid;
+                padding-left: 30px;
+                background-color: rgba(28,196,5,0.1);
+                line-height: 30px;
+            }
+            #pieds_de_page{
+                height : 120px;
+                background-color : rgba(8,5,9,0.90);
+                color: silver;
+                align-content: center;
+                padding-top: 50px ;
+                margin-top: 28px;
+            }
+            #pieds_de_page p{
+                text-align: center;
+            }
+    </style>
+</head>
+<body>
+    <h2></h2>
+    
+
+    <header>
+        <div id="titre">
+            <h2> Introduction aux variables en Js </h2>
+        </div>
+    </header>
+    <div id='contener'>
+        <h4>Notions clés : </h4>
+        <ul>
+            <li>définition d'une variable</li>
+            <li>déclaration d'une variable</li>
+            <li>introduction aux types de valeurs</li>
+            <li>l'opérateur d'affection : = </li>
+        </ul><br><br>
+        <h3>Théorie :</h3>
+        <p>Une variable Js est un conteneur qui va stocker temporairement une information (un nom, une chaîne de caractères, un chiffre, etc). Une variable doit pouvoir stocker différentes valeurs dans le temps en écrasant celle(s) précédente(s). <br> Une variable Js doit avoir un nom unique (ID), qui doit commencer par une lettre et ne peut contenir que des lettres non accentuées, peut avoir des chiffres ou un underscore ou encore un dollar. Le nom des variables Js est sensible à la casse. Il existe des mots reservés qui ne pourront pas être utilisés comme noms de variables. <br> Il exister plusieurs façons de déclarer une variable :</p>
+        <ul>
+            <li>déclaration suivie de l'affectation des valeurs : <script> var x=25 ; var y=10; </script> </li>
+            <li>déclaration de plusieurs variables séparées par une virgule, avec un seul "var" : <script> var nom=Bineng , prenom=Pierre, age=26, pays=Autriche ; </script> </li>
+            <li>déclaration d'une variable sans valeur (ceci n'est pas recommandé) :<script> var taille ; taille=1.79 ; </script> </li>
+            <li>déclaration d'une variable vide, affectation ultérieure de la valeur : <script>var ville="" ; ville="Vienne" </script> </li>
+        </ul><br><br>
+        <h3>Les types de valeur des variables </h3>
+        <p>Une variable peut stocker un texte/chaîne de caractères(string) avec les ' ' ou " "; un chiffre ou un booléen (true/false).<br> Le signe = est un opérateur d'affectation et non d'égalité. Dans ce sens var X=10 signifie qu'on affecte la valeur 10 à la variable X, ou qu'on stocke 10 dans la variable X; X=10+5 , on stocke 10+5 dans X. </p>       
+    </div>
+    <footer>
+        <div id='pieds_de_page'>
+            <p>copyright</p>
+            <p>no passion, no success !</p>
+        </div>
+    </footer>
+
+
+
+</body>
+</html>

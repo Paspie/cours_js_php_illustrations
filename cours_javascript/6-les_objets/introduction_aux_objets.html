@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction aux objets en Js </title>
+    <style>
+        *{
+                margin : 0px ;
+                padding : 0px ;
+            }
+            header{
+                height: 100px;
+                border: 1px solid rgba(123, 223, 77, 0.7);
+                padding: 100px 30% ;
+                margin-bottom: 28px;
+                background-image: url('../headandfooter/banner_linkedin.jpeg');
+                background-repeat: space;
+                background-size: contain;
+            }
+            header #titre{
+                word-spacing: 10px;
+                background-color: rgba(133, 223, 77, 0.6);
+                display: inline-block;
+                border-radius: 6px;
+                text-transform: uppercase;
+                text-align: center;
+                width: auto;
+            }
+            #contener{
+                width : 60%;
+                margin : auto ;
+                border-left: 1px solid;
+                padding-left: 30px;
+                background-color: rgba(28,196,5,0.1);
+                line-height: 30px;
+            }
+            #pieds_de_page{
+                height : 120px;
+                background-color : rgba(8,5,9,0.90);
+                color: silver;
+                align-content: center;
+                padding-top: 50px ;
+                margin-top: 28px;
+            }
+            #pieds_de_page p{
+                text-align: center;
+            }
+    </style>
+</head>
+<body>
+    <header>
+        <div id="titre">
+            <h2> Introduction aux objets en Js </h2>
+        </div>
+    </header>
+    <div id='contener'>
+        <h4> Notions clés ou objectifs :</h4>
+         <ul>
+             <li>Comprendre l'importance des objets  </li>
+             <li>définir un objet</li>
+             <li>faire la différence entre un objet natif et un objet crée par nous mêmes.</li>
+             <li>maîtriser les termes propriété et méthode d'un objet</li>
+             <li>faire la différence entre un objet natif et une valeur primitive</li>
+         </ul><br><br>
+         <p>Le Js est un langage <strong>orienté objets</strong>. Pour illustrer ce qu'est un objet, considerons une boîte à crayons de couleurs. les crayons ayant tous été fabriqués à partir d'une même machine, se diffèrent les uns aux autres par leurs tailles, épaisseurs, couleurs,... qui représentent les proprietés et méthodes de chacun des objets crayon.<br>Il existe déjà dans le Js des objets prêts à l'emploi, ce sont des objets dits <strong>natifs</strong> par exemple les objets <em>string, number, array, etc</em>. A côté d'eux, on peut être amenés à créer des objets en fonction de nos besoins, ce sont des objets créés par nous-mêmes. <br>Tout objet rencontré dans un script possède donc une <strong>fonction constructeur</strong> à partir de laquelle il a été créé. Une <strong>valeur primitive</strong> est un objet natif écrit de façon simplifiée de sorte à alléger son utilisation. Les objets et les valeurs primitives d'un élément pourront se faire appliquer les mêmes proprietés et méthodes, cependant les secondes pouvant être comparées entre elles, les premiers non. <br> Par exemple l'élément <strong>string</strong> peut avoir pour valeur primitive : <strong><em>"var str1 = 'je suis écrit sous forme primitive' ; "</em></strong> et comme objet : <strong><em>"var str2 = new string ('je suis écrit sous forme d'objet);" </em></strong>. la propriété length pouvant être appliquée aux 2, <strong><em>str1.length</em></strong> et <strong><em>str2.length</em></strong>, la méthode toUpperCase() , <strong><em>str1.toUpperCase() </em></strong> et <strong><em>str2.toUpperCase() </em></strong>. <br><em>Il est conseillé toutefois de n'utiliser la forme "objet" des objets natifs qu'en cas de force majeure. </em> </p>   
+    </div>
+    
+    <footer>
+        <div id='pieds_de_page'>
+            <p>copyright</p>
+            <p>no passion, no success !</p>
+        </div>
+    </footer>
+</body>
+</html>
